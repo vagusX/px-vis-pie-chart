@@ -1,5 +1,6 @@
 {
   "name": "px-vis-pie-chart",
+  "version": "0.0.2",
   "main": [
     "px-vis-pie-chart.html"
   ],
@@ -23,14 +24,14 @@
     "px-starter-kit-design": "~0.5.5"
   },
   "homepage": "https://github.com/PredixDev/px-vis-pie-chart",
-  "_release": "9f9618ebd7",
+  "_release": "0.0.2",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "9f9618ebd7d219164b2c29036681b989a19eba63"
+    "type": "version",
+    "tag": "v0.0.2",
+    "commit": "1b1d9762c130756c03f2b0a07526578cc987ccdf"
   },
   "_source": "https://github.com/PredixDev/px-vis-pie-chart.git",
-  "_target": "*",
+  "_target": "^0.0.2",
   "_originalSource": "px-vis-pie-chart",
   "_direct": true
 }
