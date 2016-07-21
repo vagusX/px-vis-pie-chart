@@ -1,0 +1,291 @@
+<!--
+    Relative paths assume component is being run from inside an app or another component, where dependencies are flat
+    siblings. When this component is run from its own repo (e.g. tests, examples), we assume the server is started with
+    'grunt depserve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
+-->
+<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../px-vis/px-vis-behavior-chart.html"/>
+<link rel="import" href="../px-vis/px-vis-behavior-common.html"/>
+<link rel="import" href="../px-vis/px-vis-behavior-d3.html"/>
+<link rel="import" href="../px-vis/px-vis-scale.html"/>
+<link rel="import" href="../px-vis/px-vis-svg.html"/>
+<link rel="import" href="../px-vis/px-vis-pie.html"/>
+<link rel="import" href="../px-vis/px-vis-axis.html"/>
+<link rel="import" href="../px-vis/px-vis-tooltip.html"/>
+<link rel="import" href="../px-vis/px-vis-interaction-space.html"/>
+<link rel="import" href="../px-vis/px-vis-register.html"/>
+<link rel="import" href="../px-vis/px-vis-zoom.html"/>
+<link rel="import" href="../px-vis/px-vis-cursor.html"/>
+<link rel="import" href="../px-vis/px-vis-clip-path.html"/>
+
+
+<!--
+Element providing solution to no problem in particular.
+
+##### Usage
+
+    <px-vis-pie-chart></px-vis-pie-chart>
+
+@element px-vis-pie-chart
+@blurb Element providing solution to no problem in particular.
+@homepage index.html
+@demo demo.html
+-->
+<dom-module id="px-vis-pie-chart">
+  <link rel="import" type="css" href  ="css/px-vis-pie-chart.css"/>
+  <template>
+    <div class$="{{_getWrapperClass(_registerType)}}">
+      <!-- Core -->
+      <px-vis-svg
+        id="svg"
+        width="[[width]]"
+        height="[[height]]"
+        margin="[[margin]]"
+        svg="{{svg}}"
+        px-svg-elem="{{pxSvgElem}}">
+      </px-vis-svg>
+      <!-- Legend -->
+      <px-vis-register
+        id="register"
+        class$="{{_getHideClass(hideRegister)}}"
+        chart-data="[[chartData]]"
+        complete-series-config="[[completeSeriesConfig]]"
+        muted-series={{mutedSeries}}
+        type="{{_registerType}}"
+        x-axis-type="pie"
+        y-axis-type="pie"
+        use-percentage="[[usePercentage]]">
+      </px-vis-register>
+    </div>
+    <px-vis-clip-path
+      svg="[[svg]]"
+      x="[[x]]"
+      y="[[y]]"
+      width="[[width]]"
+      height="[[height]]"
+      margin="[[margin]]"
+      clip-path="{{clipPath}}">
+    </px-vis-clip-path>
+    <!-- pie series -->
+    <px-vis-pie
+      svg="[[svg]]"
+      width="[[width]]"
+      height="[[height]]"
+      margin="[[margin]]"
+      chart-data="[[chartData]]"
+      series-id="[[_getSeriesId(completeSeriesConfig)]]"
+      muted-series="[[mutedSeries]]"
+      clip-path="[[clipPath]]"
+      complete-series-config="[[completeSeriesConfig]]"
+      inner-radius="[[innerRadius]]"
+      donut="[[donut]]"
+      px-svg-elem="[[pxSvgElem]]"
+      use-percentage="[[usePercentage]]"
+      show-title="[[showTitle]]"
+      total="[[_total]]">
+    </px-vis-pie>
+    <px-vis-interaction-space
+      svg="[[svg]]"
+      width="[[width]]"
+      height="[[height]]"
+      margin="[[margin]]"
+      x="[[x]]"
+      y="[[y]]"
+      current-domain-x="[[currentDomainX]]"
+      current-domain-y="[[currentDomainY]]"
+      chart-data="[[chartData]]"
+      tooltip-data="{{tooltipData}}"
+      extents-data="{{extentsData}}"
+      x-axis-type="[[xAxisType]]"
+      y-axis-type="[[yAxisType]]"
+      complete-series-config="[[completeSeriesConfig]]">
+    </px-vis-interaction-space>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'px-vis-pie-chart',
+
+    behaviors: [
+      PxVisBehaviorD3.svg,
+      PxVisBehaviorD3.clipPath,
+      PxVisBehavior.dataset,
+      PxVisBehavior.mutedSeries,
+      PxVisBehavior.sizing,
+      PxVisBehavior.tooltipData,
+      PxVisBehavior.completeSeriesConfig,
+      PxVisBehaviorChart.chartCommon
+    ],
+    properties: {
+      /**
+       * Configuration object used to customize the tooltip.
+       * Please refer to px-tooltip (URL) for a list of supported proerties.
+       * Most interesting properties include:
+       * -width
+       * -height
+       *
+       */
+      tooltipConfig: {
+        type: Object,
+        observer: '_tooltipConfigChanged'
+      },
+      /**
+       * Configuration object used to customize the tooltip.
+       * Please refer to px-tooltip (URL) for a list of supported proerties.
+       * Most interesting properties include:
+       * -width
+       * -height
+       *
+       */
+      registerConfig: {
+        type: Object,
+        observer: '_registerConfigChanged'
+      },
+      /**
+       *
+       * Allows to hide the tooltip
+       */
+      hideTooltip: {
+        type: Boolean,
+        value: false
+      },
+      /**
+       *
+       * Allows to hide the register
+       */
+      hideRegister: {
+        type: Boolean,
+        value: false
+      },
+      /**
+       * Whether to show a title in the middle of the pie/donut with the total value.
+       * Meant to be used with a donut chart
+       */
+      showTitle: {
+        type: Boolean,
+        value: false
+      },
+      _registerType: {
+        type: String
+      },
+      /**
+       * Internal data used, same as chartData but with percentages infos
+       */
+      _internalChartData: {
+        type: Array,
+        computed: '_getInternalData(chartData, completeSeriesConfig)'
+      },
+      /**
+       * Total value of all slices
+       */
+      _total: {
+        type: Number,
+        value: 0
+      },
+      /**
+       * Whether the chart should be disaplyed as a donut rather than a pie.
+       * If displayed as a donut it will by default use 30px as the ring size.
+       * It can be overriden by using the "innerRadius" property (between 0 and 1)
+       */
+      donut: {
+        type: Boolean,
+        value: false
+      },
+      /**
+       * Number between 0 and 1 defining how much of the inner pie should be cut.
+       * Use it to override default donut ring size. 0 = full chart, 1 no chart
+       *
+       */
+      innerRadius: {
+        type: Number,
+        value: 0
+      },
+      /**
+       * whether the values should be displayed in %
+       */
+      usePercentage: {
+        type: Boolean,
+        value: false
+      }
+    },
+    observer: ['_xAxisConfigChanged(xAxisConfig.*)',
+               '_yAxisConfigChanged(yAxisConfig.*)',
+               '_chartDataChanged(chartData)'],
+    ready: function() {
+      this.xAxisType = 'pie';
+      this.yAxisType = 'pie';
+      this.includeAllSeries = true;
+    },
+    _tooltipConfigChanged: function(conf) {
+
+      this._applyConfigToElement(this.tooltipConfig, this.$.tooltip);
+    },
+    _registerConfigChanged: function(conf) {
+
+      this._applyConfigToElement(this.registerConfig, this.$.register);
+    },
+    _getInternalData: function(chartData, completeSeriesConfig) {
+      var total = 0,
+          id = this._returnKeys(completeSeriesConfig)[0],
+          xKey = this.completeSeriesConfig[id].x,
+          result = [];
+
+        //calculate total value of all data
+        for(var i=0; i<chartData.length; i++) {
+          total += chartData[i][xKey];
+          result.push(chartData[i]);
+        }
+
+        this.set('_total', total);
+
+        //make sure each slice is aware of its percentage value
+        for(var i=0; i<result.length; i++) {
+          result[i].percentage = ((result[i][xKey]/total) * 100).toFixed(0);
+        }
+    },
+    /**
+     * Applies the config object to the element. Each key in the config object
+     * is the name of the property to be applied
+     *
+     */
+    _applyConfigToElement: function(config, element) {
+      if(typeof(config) !== 'object') {
+        console.error('Configuration object must be valid JSON: ' + config);
+        return;
+      }
+      if(!element) {
+        console.error('Cannot apply config to undefined element');
+        return;
+      }
+
+      var keys = Object.keys(config);
+      for(var i = 0; i < keys.length; i++){
+        var key = keys[i];
+        element.set(key, config[key])
+      }
+    },
+    _getHideClass: function(hide) {
+      if(hide === true) {
+        return 'visuallyhidden';
+      }
+      return '';
+    },
+    _getWrapperClass: function(regType) {
+      var classList = "flex ";
+
+      if(regType === 'vertical') {
+        classList += "flex--row";
+      }
+      else {
+        classList += "flex--col--rev";
+      }
+      return classList;
+    },
+    _getSeriesId: function(completeSeriesConfig) {
+      //should always have only 1 key for pies
+      return this._returnKeys(completeSeriesConfig)[0];
+    }
+  });
+</script>

@@ -1,0 +1,49 @@
+{
+  "name": "px-datetime-field",
+  "version": "0.4.2",
+  "main": [
+    "px-datetime-field.html"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "sass",
+    "bower_components",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "polymer": "#^1.5.0",
+    "px-theme": "~0.8.0",
+    "px-datetime-common": "~0.5.0",
+    "px-code-design": "^0.2.11"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~v1.1.0",
+    "px-starter-kit-design": "#~0.5.4",
+    "px-forms-design": "#~0.3.15",
+    "px-tables-design": "#~0.3.12",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
+    "polymer-font-awesome": "~0.1.5",
+    "px-tabs": "~0.4.0",
+    "ace-widget": "LostInBrittany/ace-widget#~1.0.13",
+    "px-api-viewer": "https://github.com/PredixDev/px-api-viewer.git",
+    "px-clipboard": "^0.0.4",
+    "px-demo-snippet": "https://github.com/predixdev/px-demo-snippet.git",
+    "px-headings-design": "^0.2.14",
+    "px-actionable-text-icons-design": "^0.0.3",
+    "px-toggle-design": "^0.2.12",
+    "px-list-inline-design": "^0.2.11"
+  },
+  "homepage": "https://github.com/PredixDev/px-datetime-field",
+  "_release": "0.4.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.2",
+    "commit": "d0f7f48a35934ca62a7e030869b39ec0ea22339d"
+  },
+  "_source": "https://github.com/PredixDev/px-datetime-field.git",
+  "_target": "~0.4.0",
+  "_originalSource": "px-datetime-field"
+}
