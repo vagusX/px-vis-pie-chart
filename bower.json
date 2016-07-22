@@ -30,8 +30,5 @@
     "px-api-viewer": "~0.0.1",
     "px-demo-snippet": "~0.0.1",
     "px-list-inline-design": "^0.2.11"
-  },
-  "resolutions": {
-    "px-vis-pie-chart": "^0.0.3"
   }
 }
