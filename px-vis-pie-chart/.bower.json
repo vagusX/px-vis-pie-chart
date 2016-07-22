@@ -1,6 +1,6 @@
 {
   "name": "px-vis-pie-chart",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": [
     "px-vis-pie-chart.html"
   ],
@@ -14,23 +14,32 @@
     "test"
   ],
   "dependencies": {
-    "polymer": "^1.5.0",
+    "polymer": "#^1.5.0",
     "px-theme": "~0.8.0",
     "px-vis": "~0.0.1"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~v1.1.6",
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
-    "px-starter-kit-design": "~0.5.5"
+    "px-starter-kit-design": "#~0.5.4",
+    "px-forms-design": "#~0.3.15",
+    "px-tables-design": "#~0.3.12",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
+    "polymer-font-awesome": "~0.1.5",
+    "px-tabs": "~0.4.0",
+    "px-api-viewer": "~0.0.1",
+    "px-demo-snippet": "~0.0.1",
+    "px-list-inline-design": "^0.2.11"
   },
   "homepage": "https://github.com/PredixDev/px-vis-pie-chart",
-  "_release": "0.0.2",
+  "_release": "0.0.3",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.2",
-    "commit": "1b1d9762c130756c03f2b0a07526578cc987ccdf"
+    "tag": "v0.0.3",
+    "commit": "ccbe45d6419e198951f589b7096c4f9d59d16fab"
   },
   "_source": "https://github.com/PredixDev/px-vis-pie-chart.git",
-  "_target": "^0.0.2",
-  "_originalSource": "px-vis-pie-chart"
+  "_target": "^0.0.3",
+  "_originalSource": "px-vis-pie-chart",
+  "_direct": true
 }
