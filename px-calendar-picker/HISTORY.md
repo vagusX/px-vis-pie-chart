@@ -1,3 +1,27 @@
+v0.3.6
+==================
+* Updated component discription in demo
+
+v0.3.5
+==================
+* Fixed id in demo
+
+v0.3.4
+==================
+* Fixed footer auto year
+
+v0.3.3
+==================
+* Fixed footer
+
+v0.3.2
+==================
+* Added height:auto to .btn--bare
+
+v0.3.1
+==================
+* Updated to new demo
+
 v0.3.0
 ==================
 * Added BlockPastDates

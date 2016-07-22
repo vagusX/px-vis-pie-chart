@@ -1,3 +1,11 @@
+v0.3.8
+==================
+* Updated component discription in demo 
+
+v0.3.7
+==================
+* updated footer in demo
+
 v0.3.6
 ==================
 * added footer to demo

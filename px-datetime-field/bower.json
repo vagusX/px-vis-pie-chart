@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-field",
-  "version": "0.4.2",
+  "version": "0.4.5",
   "main": [
     "px-datetime-field.html"
   ],
@@ -14,10 +14,9 @@
     "test"
   ],
   "dependencies": {
-    "polymer": "#^1.5.0",
+    "polymer": "^1.5.0",
     "px-theme": "~0.8.0",
-    "px-datetime-common": "~0.5.0",
-    "px-code-design": "^0.2.11"
+    "px-datetime-common": "~0.5.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~v1.1.0",
@@ -34,6 +33,7 @@
     "px-headings-design": "^0.2.14",
     "px-actionable-text-icons-design": "^0.0.3",
     "px-toggle-design": "^0.2.12",
-    "px-list-inline-design": "^0.2.11"
+    "px-list-inline-design": "^0.2.11",
+    "px-code-design": "^0.2.11"
   }
 }

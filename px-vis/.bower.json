@@ -1,6 +1,6 @@
 {
   "name": "px-vis",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "main": [
     "px-vis.html"
   ],
@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
-    "px-demo-data": "~0.0.1",
     "iron-component-page": "PolymerElements/iron-component-page#~1.1.0",
     "px-meta-buttons-design": "~0.5.2",
     "px-starter-kit-design": "~0.4.9",
@@ -41,11 +40,11 @@
     "numbro": "1.7.1"
   },
   "homepage": "https://github.com/PredixDev/px-vis",
-  "_release": "0.0.2",
+  "_release": "0.0.5",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.2",
-    "commit": "9d1dbac9b3a301969d56c5d6f9a39593fb5e9c57"
+    "tag": "v0.0.5",
+    "commit": "182cdb09ad315015a4d6526b8093aeb9c976a602"
   },
   "_source": "https://github.com/PredixDev/px-vis.git",
   "_target": "~0.0.1",

@@ -1,0 +1,27 @@
+{
+  "name": "px-api-viewer",
+  "version": "0.0.3",
+  "main": [
+    "px-api-viewer.html"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "sass",
+    "bower_components",
+    "node_modules",
+    "test",
+    ".git"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0",
+    "px-theme": "~0.8.0",
+    "hydrolysis": "~1.24.1",
+    "iron-doc-viewer": "~1.0.15"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~v1.1.6",
+    "px-starter-kit-design": "~0.5.5"
+  }
+}

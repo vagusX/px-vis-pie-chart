@@ -1,0 +1,86 @@
+<!--
+    Relative paths assume component is being run from inside an app or another component, where dependencies are flat
+    siblings. When this component is run from its own repo (e.g. tests, examples), we assume the server is started with
+    'grunt depserve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
+-->
+<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../hydrolysis/hydrolysis-analyzer.html" />
+<link rel="import" href="../iron-doc-viewer/iron-doc-viewer.html" />
+<!--
+Element providing API documentation for a requested Polymer component
+
+##### Usage
+
+    <px-api-viewer source="demo_component"></px-api-viewer>
+
+@element px-api-viewer
+@blurb Element providing API documentation for a requested Polymer component
+@homepage index.html
+@demo demo.html
+-->
+<dom-module id="px-api-viewer">
+  <link rel="import" type="css" href="css/px-api-viewer.css"/>
+  <template>
+    <iron-doc-viewer descriptor="{{_elementDescriptor}}"></iron-doc-viewer>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'px-api-viewer',
+
+    /**
+         * Properties block, expose attribute values to the DOM via 'notify'
+         *
+         * @property properties
+         * @type Object
+         */
+    properties: {
+      /*
+      * A json object, created by hydrolysis, which contains the actual
+      * documentation for the component
+      *
+      * @property _elementDescriptor
+      * @type Object
+      */
+      _elementDescriptor: {
+        type: Object,
+        notify: true
+      },
+      /*
+      * A string holding the name of the component.
+      * do not add `.html` to this attribute.
+      *
+      * @property source
+      * @type String
+      */
+      source: {
+        type: String,
+        value: '',
+        notify: true
+      }
+    },
+    attached: function() {
+      var hyd = require('hydrolysis');
+      //have hydrolysis analyze the requested component
+      hyd.Analyzer.analyze(this.source)
+        .then(function(analyzer) {
+          this._setElementDescriptor(analyzer);
+        }.bind(this));
+    },
+    /*
+    * Fired when hydrolysissuccessfully passes the json
+    * to iron-doc-viewer successfully.
+    * @event pxElementAPIReceived
+    */
+    /*
+    * Set the _elementDescriptor on the component, and fire a elementAPIReceived event
+    * @method _setElementDescriptor
+    */
+    _setElementDescriptor: function(analyzer) {
+      this.set('_elementDescriptor', analyzer.elementsByTagName[this.source]);
+      this.fire('pxElementAPIReceived', analyzer.elementsByTagName[this.source]);
+    }
+  });
+</script>
