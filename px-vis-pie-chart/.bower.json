@@ -1,6 +1,6 @@
 {
   "name": "px-vis-pie-chart",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": [
     "px-vis-pie-chart.html"
   ],
@@ -16,7 +16,7 @@
   "dependencies": {
     "polymer": "#^1.5.0",
     "px-theme": "~0.8.0",
-    "px-vis": "~0.0.1"
+    "px-vis": "~0.1.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~v1.1.6",
@@ -32,13 +32,14 @@
     "px-list-inline-design": "^0.2.11"
   },
   "homepage": "https://github.com/PredixDev/px-vis-pie-chart",
-  "_release": "0.0.3",
+  "_release": "0.0.4",
   "_resolution": {
     "type": "version",
-    "tag": "v0.0.3",
-    "commit": "ccbe45d6419e198951f589b7096c4f9d59d16fab"
+    "tag": "v0.0.4",
+    "commit": "dcfc029ec033f0a14fd56bb338a2e30404ad78c2"
   },
   "_source": "https://github.com/PredixDev/px-vis-pie-chart.git",
-  "_target": "^0.0.3",
-  "_originalSource": "px-vis-pie-chart"
+  "_target": "^0.0.4",
+  "_originalSource": "px-vis-pie-chart",
+  "_direct": true
 }
