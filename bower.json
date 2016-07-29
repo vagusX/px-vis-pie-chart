@@ -1,6 +1,6 @@
 {
   "name": "px-vis-pie-chart",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": [
     "px-vis-pie-chart.html"
   ],
@@ -16,7 +16,8 @@
   "dependencies": {
     "polymer": "#^1.5.0",
     "px-theme": "~0.8.0",
-    "px-vis": "~0.1.0"
+    "px-vis": "~0.1.0",
+    "iron-resizable-behavior": "^1.0.4"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#~v1.1.6",
@@ -30,5 +31,9 @@
     "px-api-viewer": "~0.0.1",
     "px-demo-snippet": "~0.0.1",
     "px-list-inline-design": "^0.2.11"
+  },
+  "resolutions": {
+    "px-vis-pie-chart": "^0.0.5",
+    "px-clipboard": "^0.0.9"
   }
 }

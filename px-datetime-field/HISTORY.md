@@ -1,3 +1,7 @@
+v0.4.7
+==================
+* Added github link
+
 v0.4.6
 ==================
 * Added vulcanize

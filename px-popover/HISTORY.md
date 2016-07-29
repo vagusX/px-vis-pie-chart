@@ -1,3 +1,7 @@
+v1.4.4
+=================
+* added view on github to demo page and image to readme
+
 v1.4.3
 =================
 * updated gh-pages script to vulcanize demo

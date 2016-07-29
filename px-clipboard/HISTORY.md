@@ -1,3 +1,23 @@
+v0.0.9
+==================
+* updated gh-pages script to vulcanize demo
+
+v0.0.8
+==================
+* changed favicon reference
+
+v0.0.7
+==================
+* added ssh credentials
+
+v0.0.6
+==================
+* added new demo
+
+v0.0.5
+==================
+* changed bower file
+
 v0.0.4
 ==================
 * downgraded polymer to 1.5

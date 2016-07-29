@@ -1,3 +1,11 @@
+v0.4.5
+=================
+* added image to readme.
+
+v0.4.5
+=================
+* added vulcanize to demo gh-pages
+
 v0.4.4
 =================
 * removed default 5px padding on top of px-tabs-pages
