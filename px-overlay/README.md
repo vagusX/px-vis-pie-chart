@@ -1,9 +1,11 @@
-Px-Overlay [![Build Status](https://travis-ci.org/PredixDev/px-overlay.svg?branch=master)](https://travis-ci.org/PredixDev/px-overlay)
+px-overlay [![Build Status](https://travis-ci.org/PredixDev/px-overlay.svg?branch=master)](https://travis-ci.org/PredixDev/px-overlay)
 -----------------------------------------------
+
+[![px-overlay demo](px-overlay.png?raw=true)](https://github.com/PredixDev/px-overlay)
 
 ## Overview
 
-Px-Overlay is a Predix Experience ('Px') component that defines a full viewport overlay element. It has two types, a light version and a dark version.
+px-overlay is a Predix UI component that defines a full viewport overlay element. It has two types, a light version and a dark version.
 
 ## Usage
 
@@ -30,7 +32,7 @@ $ grunt sass
 
 ### API and examples
 
-From the component's directory
+See the demo and read the full API <a href="https://predixdev.github.io/px-overlay">here</a>
 
 ```
 $ grunt depserve
@@ -93,4 +95,4 @@ See Polymer [composition patterns](https://www.polymer-project.org/1.0/docs/devg
 
 
 ### Known Issues
-Please use [Github Issues](https://github.com/PredixDev/px-dropdown/issues) to submit any bugs you might find.
+Please use [Github Issues](https://github.com/PredixDev/px-overlay/issues) to submit any bugs you might find.

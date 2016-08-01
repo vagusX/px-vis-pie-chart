@@ -35,6 +35,6 @@
     "commit": "0f41d3ddaa8e95ea90b8a5ed201cf030f1113d9a"
   },
   "_source": "git://github.com/LostInBrittany/ace-widget.git",
-  "_target": "~1.0.13",
+  "_target": "~1.0.14",
   "_originalSource": "LostInBrittany/ace-widget"
 }
