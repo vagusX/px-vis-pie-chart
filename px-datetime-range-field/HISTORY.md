@@ -1,10 +1,14 @@
+v0.3.10
+==================
+* added image to readme, removed watch, added view on github
+
 v0.3.9
 ==================
 * Added vulcanize
 
 v0.3.8
 ==================
-* Updated component discription in demo
+* Updated component description in demo
 
 v0.3.7
 ==================

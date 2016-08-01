@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-range-field",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "main": [
     "px-datetime-range-field.html"
   ],
@@ -13,7 +13,9 @@
     "node_modules",
     "test",
     ".github",
-    "OSS_Notice.pdf"
+    "OSS_Notice.pdf",
+    "px-datetime-range-field.png",
+    "scripts"
   ],
   "dependencies": {
     "polymer": "^1.5.0",
@@ -30,16 +32,14 @@
 
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#~v1.1.0",
     "px-starter-kit-design": "#~0.5.4",
     "px-forms-design": "#~0.3.15",
     "px-tables-design": "#~0.3.12",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
-    "polymer-font-awesome": "~0.1.5",
+    "px-polymer-font-awesome":"^0.1.8",
     "px-tabs": "~0.4.0",
-    "ace-widget": "LostInBrittany/ace-widget#~1.0.13",
-    "px-api-viewer": "https://github.com/PredixDev/px-api-viewer.git",
-    "px-demo-snippet": "https://github.com/predixdev/px-demo-snippet.git",
+    "px-api-viewer": "~0.0.3",
+    "px-demo-snippet": "~0.0.12",
     "px-list-inline-design": "^0.2.11"
   }
 }

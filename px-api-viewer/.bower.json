@@ -32,6 +32,6 @@
     "commit": "63706fb56458d74618f79cafe28606d3d29f03ed"
   },
   "_source": "https://github.com/PredixDev/px-api-viewer.git",
-  "_target": "~0.0.1",
+  "_target": "~0.0.3",
   "_originalSource": "px-api-viewer"
 }
