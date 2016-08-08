@@ -1,6 +1,6 @@
 {
   "name": "px-vis",
-  "version": "0.1.6",
+  "version": "0.1.13",
   "main": [
     "px-vis.html"
   ],
@@ -16,7 +16,6 @@
   "dependencies": {
     "polymer": "^1.5.0",
     "px-d3": "d3#~4.1.0",
-    "d3": "3.1.0",
     "numbro": "~1.7.0",
     "numbro-element": "~1.0.4",
     "px-colors-design": "~0.2.15",
@@ -27,7 +26,8 @@
     "px": "~1.4.0",
     "px-layout-design": "~0.3.13",
     "px-code-design": "~0.2.11",
-    "px-datetime-common": "~0.5.0"
+    "px-datetime-common": "~0.5.0",
+    "iron-resizable-behavior": "^1.0.4"
   },
   "devDependencies": {
     "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
@@ -40,11 +40,11 @@
     "numbro": "1.7.1"
   },
   "homepage": "https://github.com/PredixDev/px-vis",
-  "_release": "0.1.6",
+  "_release": "0.1.13",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.6",
-    "commit": "fd5efbc8fa963c0b796fc50d95dda5eaa02ea292"
+    "tag": "v0.1.13",
+    "commit": "2d85d45d6c2b08bd77c4d3d6cebcc80acdae8be8"
   },
   "_source": "https://github.com/PredixDev/px-vis.git",
   "_target": "~0.1.0",

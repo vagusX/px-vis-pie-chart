@@ -1,3 +1,7 @@
+v0.3.11
+==================
+* Added --px-datetime-range-field-to-color
+
 v0.3.10
 ==================
 * added image to readme, removed watch, added view on github

@@ -1,3 +1,11 @@
+v0.5.4
+==================
+* Fixed shared behavior to use Px.moment instead of moment
+
+v0.5.3
+==================
+* Make sure that we don't override moment if loaded already
+
 v0.5.2
 ==================
 * Removed bower resolution

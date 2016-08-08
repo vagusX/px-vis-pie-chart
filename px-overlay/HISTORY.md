@@ -1,6 +1,10 @@
+v0.2.5
+==================
+* added mega demo, changed self to .bind in the component
+
 v0.2.4
 ==================
-* added image to readme, removed watch, added view on github
+* added image to readme
 
 v0.2.3
 ==================

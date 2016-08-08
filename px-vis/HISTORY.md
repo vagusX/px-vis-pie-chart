@@ -1,3 +1,31 @@
+v0.1.13
+==================
+* Fix brush and axis-brush for dynamic sizing
+
+v0.1.12
+==================
+* auto resize on chart navigator
+
+v0.1.11
+==================
+* bug fixes, progressive rendering for canvas
+
+v0.1.10
+==================
+* bug fix
+
+v0.1.9
+==================
+* Improving tests and bug fixes
+
+v0.1.8
+==================
+* Make auto resize work for multi axis/scale/brush
+
+v0.1.7
+==================
+* Added demo link to README
+
 v0.1.6
 ==================
 * Improve data handling by pie slices, allow empty data as well

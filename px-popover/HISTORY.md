@@ -1,3 +1,11 @@
+v1.4.6
+=================
+* added overflow to demo class and removed <br>
+
+v1.4.5
+=================
+* updated mega demo styles and bower px-demo-snippet to ^
+
 v1.4.4
 =================
 * added view on github to demo page and image to readme

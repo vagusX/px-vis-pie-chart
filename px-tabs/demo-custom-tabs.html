@@ -1,8 +1,5 @@
 <link rel="import" href="../polymer/polymer.html"/>
 <link rel="import" href="../px-theme/px-theme.html"/>
-<link rel="import" href="px-tab-set.html"/>
-<link rel="import" href="px-tab.html"/>
-<link rel="import" href="px-tab-pages.html"/>
 
 <dom-module id="demo-custom-tabs">
   <template>
@@ -32,13 +29,10 @@
       is: 'demo-custom-tabs',
       properties: {
         selected: {
-          type: String,
-          reflect: true
+          type: String
         }
       },
       ready: function() {
-        console.log('ready. ' + this.selected);
-        var tabs = document.querySelector('#tab-set');
         this.selected = 0;
       }
     });

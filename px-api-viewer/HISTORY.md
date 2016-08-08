@@ -1,3 +1,7 @@
+v0.0.4
+==================
+* fixed behaviors linking in demo page.
+
 v0.0.3
 ==================
 * added travis

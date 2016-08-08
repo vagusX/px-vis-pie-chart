@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-common",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "main": [
     "px-datetime-common.html"
   ],
@@ -14,8 +14,8 @@
     "test"
   ],
   "dependencies": {
-    "moment": "~2.13.0",
-    "moment-timezone": "~0.5.3",
+    "px-moment": "moment#~2.13.0",
+    "px-moment-timezone": "moment-timezone#~0.5.3",
     "polymer": "^1.5.0",
     "px-theme": "~0.8.0",
     "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior#~1.1.0",

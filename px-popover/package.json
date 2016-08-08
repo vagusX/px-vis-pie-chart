@@ -2,7 +2,7 @@
   "name": "px-popover",
   "author": "General Electric",
   "description": "A Px component",
-  "version": "1.4.4",
+  "version": "1.4.6",
   "private": true,
   "extName": null,
   "repository": {
@@ -18,6 +18,7 @@
     "grunt-contrib-jshint": "~v0.10.0",
     "grunt-contrib-watch": "~v0.6.1",
     "grunt-dep-serve": "git+https://github.com/GeneralElectric/grunt-dep-serve.git#master",
+    "webdriver-support": "git+https://github.com/PredixDev/webdriver-support.git#v2.2.1",
     "grunt-sass": "^v1.0.0",
     "grunt-shell": "~v1.1.1",
     "node-sass-import-once": "^1.2.0"
