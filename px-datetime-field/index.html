@@ -35,13 +35,16 @@
         <p >
     			The	<code>px-datetime-field</code> component includes various elements used for structuring responsive layouts.
     		</p>
-        <p >This component allows the user to select a date and time precisely to the second or millisecond.
+        <p >
+          This component allows the user to select a date and time precisely to the second or millisecond.
         </p>
-        <p >The counter represents when the px-datetime-field event/date property of the
+        <p >
+          The counter represents when the px-datetime-field event/date property of the
         field is being fired/updated. The behavior depends on whether the field uses
         buttons. It is defined as followed:
         <br>
-        - If it has buttons then it is fired when the user clicks the apply button AND the date/time is valid<br>
+        - If it has buttons then it is fired when the user clicks the apply button AND the date/time is valid
+        <br>
         - If it doesn't have buttons then it is fired every time a valid change is made to the date or time
         </p>
       </div>
@@ -51,23 +54,22 @@
   			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/px-datetime-field.svg?style=flat-square" alt="Issues" onerror="this.style.display='none'"/>
   		</div>
   	</div>
-    <br />
 
     <!-- mega demo -->
     <div style="position: relative;" class="u-pb++ flex flex--col" id="defaultTab">
       <div class="tabContainer u-pt++ u-pl++">
         <px-tab-set selected="{{selected}}" bare no-bottom-border>
           <template is="dom-repeat" items="{{optionsArray}}">
-            <px-tab>Configuration {{indexPlusOne(index)}}</px-tab>
+            <px-tab>Option {{indexPlusOne(index)}}</px-tab>
           </template>
         </px-tab-set>
       </div>
       <px-tab-pages selected="{{selected}}">
         <template is="dom-repeat" items="{{optionsArray}}">
-          <section class="tab-page flex flex--right flex--wrap">
-            <div class="mega-demo flex u-pb++">
-            <!-- Properties -->
-            <div class="properties u-ph+ u-pb+ u-mt++ u-mh++" id="properties">
+          <section class="tab-page">
+            <div class="mega-demo flex flex--wrap u-ph++ u-pb++">
+              <!-- Properties -->
+              <div class="properties u-ph+ u-pb+ u-mt+">
               <p class="epsilon">Properties</p>
               <div class="flex u-mb-">
                 <input id="toggleDate{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
@@ -120,11 +122,10 @@
               <div>More info on date and time format at <a href="http://momentjs.com/docs/#/parsing/string-format/" target="_blank" class="actionable">momentjs</a></div>
             </div>
 
-            <div class="demoContainer u-mr++">
-              <!-- demo -->
-              <div class="flex flex--col">
-                <div class="flex__item demo u-ph+ u-pb+ u-mt++">
-                  <br />
+            <div class="demoContainer u-mt+">
+                <!-- demo -->
+                <div class="flex flex--col">
+                  <div class="flex__item demo u-p+">
                   <span id="counter"><strong>px-datetime-field-submitted</strong> fired <strong>0</strong> time</span>
                   <div>
                     Current dateTime object: <strong>{{item.dateTime}}</strong>

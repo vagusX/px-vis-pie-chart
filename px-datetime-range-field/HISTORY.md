@@ -1,3 +1,7 @@
+v0.3.12
+==================
+* updated mega demo styles and bower px-demo-snippet to ^
+
 v0.3.11
 ==================
 * Added --px-datetime-range-field-to-color

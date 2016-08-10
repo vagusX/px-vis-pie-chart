@@ -1,6 +1,6 @@
 {
     "name": "px-tabs",
-    "version": "0.4.10",
+    "version": "0.4.11",
     "main": [
         "px-tabs.html"
     ],
