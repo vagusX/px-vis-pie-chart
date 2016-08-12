@@ -1,6 +1,6 @@
 {
   "name": "px-overlay",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "main": [
     "px-overlay.html"
   ],
@@ -30,7 +30,7 @@
     "px-polymer-font-awesome": "^0.1.8",
     "px-tabs": "~0.4.0",
     "px-api-viewer": "~0.0.3",
-    "px-demo-snippet": "~0.0.11",
+    "px-demo-snippet": "^0.1.0",
     "px-actionable-text-icons-design": "^0.0.3",
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
@@ -41,11 +41,11 @@
     "px-buttons-design": "^0.4.26"
   },
   "homepage": "https://github.com/predixDev/px-overlay",
-  "_release": "0.2.6",
+  "_release": "0.2.7",
   "_resolution": {
     "type": "version",
-    "tag": "v0.2.6",
-    "commit": "95309f325c8344189628b6b93e26c5117e6e520e"
+    "tag": "v0.2.7",
+    "commit": "73715e58ad1af078ee6ba595f12966ee4bd04643"
   },
   "_source": "https://github.com/predixDev/px-overlay.git",
   "_target": "~0.2.0",

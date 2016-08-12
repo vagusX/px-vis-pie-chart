@@ -3,9 +3,11 @@
     siblings. When this component is run from its own repo (e.g. tests, examples), we assume the server is started with
     'grunt depserve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
 -->
-<link rel="import" href="../polymer/polymer.html"/>
-<link rel="import" href="../ace-widget/ace-widget.html">
+<link rel="import" href="../polymer/polymer.html" />
 <link rel="import" href="../px-clipboard/px-clipboard.html" />
+<link rel="import" href="../prism-element/prism-highlighter.html" />
+
+
 
 
 <!--
@@ -28,14 +30,16 @@ In addiction to element properties, you can also pass in light dom content, by i
 <dom-module id="px-demo-snippet">
   <link rel="import" type="css" href="css/px-demo-snippet.css"/>
   <template>
+    <prism-highlighter></prism-highlighter>
     <div class="flex demoCode">
-      <div class="editor u-mr+">
-        <ace-widget id="jeditor"  minlines="10" maxlines="10" theme="ace/theme/chrome" mode="ace/mode/html"  wrap softtabs></ace-widget>
+      <div class="editor u-mr+ u-p-">
+        <div id="jeditor"></div>
       </div>
-      <div class="clipboard">
-        <px-clipboard data-clipboard-text="{{_output}}"></px-clipboard>
+      <div class="clipboard u-pr+ u-pt-">
+        <px-clipboard data-clipboard-text="[[_output]]"></px-clipboard>
       </div>
     </div>
+
   </template>
 </dom-module>
 
@@ -92,27 +96,34 @@ In addiction to element properties, you can also pass in light dom content, by i
       _output : {
         type: String,
         notify: true,
-        observer: '_changeEditorContent'
+        observer: '_render'
       }
     },
     observers: ['_elementPropertyChanged(elementProperties.*)', '_setPropertyChanger(elementName)'],
     attached: function() {
       //first, make sure to find the component we are doing the demo on
       this._findDemoElement();
-      //when Polymer is ready, set the following options on ace widget.
-      this.async(function() {
-        this.$.jeditor.editor.setHighlightActiveLine(false);
-        this.$.jeditor.editor.getSession().setUseWorker(false);
-        this.$.jeditor.editor.renderer.setShowGutter(false);
-        this.$.jeditor.editor.setOption({minLines: 10, maxLines: 10});
-        this.$.jeditor.editor.setOption("showPrintMargin", false);
-        this.$.jeditor.editor.$blockScrolling = 1;
-        this._changeEditorContent();
-      });
-
+      this._formatComponentString();
     },
-    _changeEditorContent: function() {
-        this.$.jeditor.editor.setValue(this._output);
+    _render: function() {
+      var  output = this._fireOutputEvent(this._output, 'html');
+
+      if (output.substr(0, 5) === '<span') {
+        this.$.jeditor.innerHTML = output;
+      } else {
+        this.$.jeditor.textContent = output;
+      }
+    },
+    /**
+    *
+    * This method fires a syntax-highlight event (meant for prism-highlighter), and returns the code, with formatting.
+    *
+    * @method _fireOutputEvent
+    * @return {Highlighted Code}
+    */
+    _fireOutputEvent: function(code, lang) {
+      //this fires an event that is changed through prism-element.
+      return this.fire('syntax-highlight', {code: code, lang: lang}).detail.code;
     },
     /**
     * This method is called through the deep observer, whenever a property is changed
@@ -196,7 +207,7 @@ In addiction to element properties, you can also pass in light dom content, by i
       }
       result += '</' + this.elementName + '>';
       //and set _output, using data binding to pass it into ace widget and px-clipboard
-      this._output = result;
+      this.set('_output',result);
     }
   });
 </script>

@@ -125,7 +125,7 @@ Rangepicker modal component.
         type: Object,
         notify: true,
         value: function() {
-          return Px.moment.tz(Px.moment(), this.timezone).subtract(1,'months');
+          return Px.moment.tz(Px.moment(), this.timeZone).subtract(1,'months');
         },
         observer: '_fromBaseDateChanged'
       },
@@ -141,7 +141,7 @@ Rangepicker modal component.
         type: Object,
         notify: true,
         value: function() {
-          return Px.moment.tz(Px.moment(), this.timezone);
+          return Px.moment.tz(Px.moment(), this.timeZone);
         },
         observer: '_toBaseDateChanged'
       },

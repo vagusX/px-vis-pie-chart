@@ -1,3 +1,19 @@
+v0.1.19
+==================
+* Fixing color issue in pie
+
+v0.1.18
+==================
+* Adding support to export chart components to images
+
+v0.1.17
+==================
+* Fix missing type in px-vis-pie _arcs
+
+v0.1.16
+==================
+* Allow chart navigator to be used without data and/or driven by a "range" attribute
+
 v0.1.15
 ==================
 * Fix racing conditions with rangepicker

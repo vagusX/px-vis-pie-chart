@@ -1,3 +1,11 @@
+v0.2.7
+==================
+* updated mega demo styles and bower px-demo-snippet to ^
+
+v0.2.6
+==================
+* Fix demo page button style & add grunt bump task
+
 v0.2.5
 ==================
 * added mega demo, changed self to .bind in the component
