@@ -1,6 +1,6 @@
 {
   "name": "px-calendar-picker",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "main": [
     "px-calendar-picker.html"
   ],
@@ -46,11 +46,11 @@
     "px-polymer-font-awesome": "^0.1.8"
   },
   "homepage": "https://github.com/PredixDev/px-calendar-picker",
-  "_release": "0.3.13",
+  "_release": "0.3.14",
   "_resolution": {
     "type": "version",
-    "tag": "v0.3.13",
-    "commit": "bfba72db826332acc40ae595e39888845ad6390a"
+    "tag": "v0.3.14",
+    "commit": "fa48c27e7723db220cfefe63001972f719565e82"
   },
   "_source": "https://github.com/PredixDev/px-calendar-picker.git",
   "_target": "~0.3.0",

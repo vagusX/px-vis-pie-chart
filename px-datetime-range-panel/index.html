@@ -17,8 +17,8 @@
   <link rel="import" href="../px-polymer-font-awesome/polymer-font-awesome.html" />
   <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
   <style>
-    .container{
-      height: 450px;
+    .demo{
+      flex-basis: 500px;
     }
     .range-panel__demo{
       position: relative;
@@ -63,7 +63,7 @@
       <px-tab-pages selected="{{selected}}">
         <template is="dom-repeat" items="{{optionsArray}}">
           <section class="tab-page">
-            <div class="mega-demo flex flex--wrap u-ph++ u-pb++">
+            <div class="mega-demo flex u-ph++ u-pb++">
               <!-- Properties -->
               <div class="properties u-ph+ u-pb+ u-mt+">
                 <p class="epsilon">Properties</p>
@@ -106,7 +106,7 @@
               <div class="demoContainer u-mt+">
                 <!-- demo -->
                 <div class="flex flex--col">
-                  <div class="flex__item demo u-p+">
+                  <div class="demo u-p+">
                     <div class="container">
                       <px-datetime-range-panel
                         class="range-panel__demo"
@@ -121,7 +121,7 @@
                       </px-datetime-range-panel>
                     </div>
                   </div>
-                  <div class="flex__item">
+                  <div>
                     <px-demo-snippet
                       element-properties={{item}}
                       element-name="px-datetime-range-panel">

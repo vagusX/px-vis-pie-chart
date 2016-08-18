@@ -1,6 +1,6 @@
 {
     "name": "px-datetime-range-panel",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "main": [
         "px-datetime-range-panel.html"
     ],
@@ -32,7 +32,7 @@
       "px-polymer-font-awesome":"^0.1.8",
       "px-tabs": "~0.4.0",
       "px-api-viewer": "~0.0.3",
-      "px-demo-snippet": "~0.0.12",
+      "px-demo-snippet": "^0.1.0",
       "px-headings-design": "^0.2.14",
       "px-actionable-text-icons-design": "^0.0.3",
       "px-toggle-design": "^0.2.12",

@@ -1,0 +1,61 @@
+{
+  "name": "px-simple-horizontal-bar-chart",
+  "version": "0.5.11",
+  "main": [
+    "px-simple-horizontal-bar-chart.html"
+  ],
+  "ignore": [
+    ".*",
+    "npm-debug.log",
+    "Gruntfile.js",
+    "sass",
+    "bower_components",
+    "node_modules",
+    "test",
+    "OSS_Notice.pdf",
+    "scripts",
+    ".github",
+    "px-simple-horizontal-bar-chart.png"
+  ],
+  "keywords": [
+    "web-components"
+  ],
+  "dependencies": {
+    "polymer": "^1.5.0",
+    "px-theme": "~0.8.0",
+    "d3": "~3.5.6",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.1.1",
+    "px-simple-chart-common-behavior": "~1.4.2",
+    "es6-promise": "3.2.2"
+  },
+  "devDependencies": {
+    "px-starter-kit-design": "~0.4.0",
+    "px-slider": "~0.5.0",
+    "px-spacing-design": "~0.3.4",
+    "px-buttons-design": "~0.4.13",
+    "px-forms-design": "#~0.3.15",
+    "px-button-group-design": "~0.3.8",
+    "px-typography-design": "~0.3.2",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
+    "px-tabs": "~0.4.0",
+    "px-api-viewer": "^0.0.1",
+    "px-demo-snippet": "^0.1.0",
+    "px-list-inline-design": "^0.2.11",
+    "px-toggle-design": "^0.2.12",
+    "px-headings-design": "^0.2.14",
+    "px-actionable-text-icons-design": "^0.0.3",
+    "px-code-design": "~0.2.11",
+    "px-dropdown": "^0.10.2",
+    "px-polymer-font-awesome": "^0.1.8"
+  },
+  "homepage": "https://github.com/predixDev/px-simple-horizontal-bar-chart",
+  "_release": "0.5.11",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.11",
+    "commit": "3785e27740c7276629b7bcb5a34aeee4cc11ef79"
+  },
+  "_source": "https://github.com/predixDev/px-simple-horizontal-bar-chart.git",
+  "_target": "^0.5.8",
+  "_originalSource": "px-simple-horizontal-bar-chart"
+}

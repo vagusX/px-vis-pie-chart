@@ -1,3 +1,7 @@
+v1.4.7
+=================
+* added overflow to demoContainer and removed flex__wrap from mega-demo
+
 v1.4.6
 =================
 * added overflow to demo class and removed <br>

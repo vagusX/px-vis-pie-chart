@@ -1,6 +1,6 @@
 {
   "name": "px-tooltip",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "main": [
     "px-tooltip.html"
   ],
@@ -40,11 +40,11 @@
     "px-buttons-design": "^0.4.26"
   },
   "homepage": "https://github.com/PredixDev/px-tooltip",
-  "_release": "0.7.5",
+  "_release": "0.7.6",
   "_resolution": {
     "type": "version",
-    "tag": "v0.7.5",
-    "commit": "ec821204e71c1f3c705770394f5e66724e09a374"
+    "tag": "v0.7.6",
+    "commit": "3c73909419dffda2ce8bc2bedd3ce12edcc0bb83"
   },
   "_source": "https://github.com/PredixDev/px-tooltip.git",
   "_target": "~0.7.0",

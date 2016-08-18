@@ -1,3 +1,7 @@
+v0.2.8
+==================
+* fixed demo bugs
+
 v0.2.7
 ==================
 * updated mega demo styles and bower px-demo-snippet to ^
