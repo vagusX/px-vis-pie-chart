@@ -1,3 +1,7 @@
+v0.1.5
+==================
+* Added support for decimals in percentages
+
 v0.1.4
 ==================
 * added overflow to demoContainer and removed flex__wrap from mega-demo
