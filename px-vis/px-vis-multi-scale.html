@@ -72,8 +72,8 @@ https://github.com/d3/d3/wiki/API-Reference#d3scale-scales
 
     observers: [
       '_setXScale(width,margin)',
-      '_setYScale(height,margin,dimensions)',
-      '_currentDomain(chartData.*,x,y,completeSeriesConfig,chartExtents)'
+      '_setYScale(height,margin,axes)',
+      '_currentDomain(x,y,chartExtents)'
     ],
     /**
     * when attached, re-fire set properties for precipitation pattern
@@ -108,14 +108,14 @@ https://github.com/d3/d3/wiki/API-Reference#d3scale-scales
 
         var w = width - margin.left - margin.right,
             range = [0, w];
-        
+
         if(this.x) {
           var oldDomain = this.x.domain();
           this.x = Px.d3.scalePoint().range(range).domain(oldDomain).padding(0.5);
         } else {
           this.x = Px.d3.scalePoint().range(range).padding(0.5);
         }
-        
+
         this.notifyPath('x.range', this.x.range);
         this.fire('px-vis-x-updated', { 'dataVar': 'x', 'data': this.x, 'method':'set' });
       }.bind(this), 5);
@@ -125,15 +125,15 @@ https://github.com/d3/d3/wiki/API-Reference#d3scale-scales
      *
      * @method _setYScale
      */
-    _setYScale: function(height,margin,dimensions) {
+    _setYScale: function(height,margin,axes) {
       this.debounce('setYScale', function() {
         var h = height - margin.top - margin.bottom,
             range = [h, 0],
             newY = {};// y is an object with multiple scales
 
-        // iterate through the dimensions and create a scale for each; set them in the y obj with the dimensions as keys so we can easily access them again later
-        for(var i = 0; i < dimensions.length; i++){
-          newY[dimensions[i]] = Px.d3.scaleLinear().nice().range(range);
+        // iterate through the axes and create a scale for each; set them in the y obj with the axes as keys so we can easily access them again later
+        for(var i = 0; i < axes.length; i++){
+          newY[axes[i]] = Px.d3.scaleLinear().nice().range(range);
         }
 
         this.set('y', newY);
@@ -218,35 +218,20 @@ https://github.com/d3/d3/wiki/API-Reference#d3scale-scales
      */
      _currentDomain: function() {
       // check to make sure there is data
-      if(this._doesObjHaveValues(this.chartData) && this._doesObjHaveValues(this.x) && this._doesObjHaveValues(this.y) && this._doesObjHaveValues(this.completeSeriesConfig) && this._doesObjHaveValues(this.chartExtents)){
-        // var xOrd = this.xAxisType === 'ordinal',
-        //   yOrd = this.yAxisType === 'ordinal',
-        //   xTime = this.xAxisType === 'time',
-        //   doX = xTime ? false : true,
-        //   doY = true,
-        //   keys = Object.keys(this.completeSeriesConfig),
+      if(this._doesObjHaveValues(this.x) && 
+      this._doesObjHaveValues(this.y) && this._doesObjHaveValues(this.chartExtents)){
+
         var dims = this.dimensions
             exts = this.chartExtents;
-        //
-        // if(exts.x.length > 0 && exts.x[0] !== Infinity && exts.x[1] !== -Infinity){
-        //   xTime = false;
-        //   doX = false;
-        // }
-        // if(exts.y.length > 0 && exts.y[0] !== Infinity && exts.y[1] !== -Infinity){
-        //   yTime = false;
-        //   doY = false;
-        // }
-        // if(doX || doY || xTime){
-        //   //Chug through the data to max and min
-        //   this._findMinMax(this.chartData, doX, doY, xOrd, yOrd, xTime, exts, keys);
-        // }
-
+        
         for(var i = 0; i < dims.length; i++){
+          if(!this.y[dims[i]]) {
+            return;
+          }
           this.y[dims[i]].domain(exts.y[dims[i]]);
         }
         this.x.domain(exts.x);
 
-        // TODO would a bool be better? Flip when run?
         // Set the domains
         this.set('currentDomainX', this.x.domain());
         this.set('currentDomainY', this.y[dims[0]].domain());

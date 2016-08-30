@@ -44,7 +44,7 @@
   "_resolution": {
     "type": "version",
     "tag": "v0.4.11",
-    "commit": "b925d49f70ff266235fe865bfc76f75e8b653b8c"
+    "commit": "4587387acb52b7449a2c4d5feef810665f258098"
   },
   "_source": "https://github.com/PredixDev/px-datetime-field.git",
   "_target": "~0.4.0",

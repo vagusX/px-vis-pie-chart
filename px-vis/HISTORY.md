@@ -1,6 +1,60 @@
+v0.1.32
+==================
+* multiaxis mouse listeners
+* update tests
+
+v0.1.31
+==================
+* clears an axis brush if that axis is removed
+
+v0.1.30
+==================
+* mute / unmute issues
+* changed the axis id
+* enabled redraw of chart through removing data
+* events fire on progressive rendering
+* added px-tooltip on axis label
+* enabled min size to axis brush
+* fixed font issues
+* fixed axis brush color
+
+v0.1.29
+==================
+* fixed bug with axes brush and new axes
+* fixed grid alignment issues
+* enabled axis name in series config
+
+v0.1.28
+==================
+* documentation updates
+
+v0.1.27
+==================
+* Fixing multi scale issue on adding axes through chart data
+
+v0.1.26
+==================
+* Many changes associated with enabling mute / unmute on parallel coords
+
+v0.1.25
+==================
+* Added support for units in axis labels
+
+v0.1.24
+==================
+* Fixed bug in axis brush where the array declaration is wrong
+
+v0.1.23
+==================
+* Adding truncation to axis labels
+
+v0.1.22
+==================
+* Make sure progressive rendering is cancelled on new drawing request
+
 v0.1.21
 ==================
-* Added preventResize option for chart auto resize. 
+* Added preventResize option for chart auto resize.
 * Added option to prevent progressive rendering for canvas (preventCanvasProgressiveRendering)
 * Make export to png dynamically choose between native and canvg (hence fixing it on edge)
 

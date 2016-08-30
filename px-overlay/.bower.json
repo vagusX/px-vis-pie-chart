@@ -45,7 +45,7 @@
   "_resolution": {
     "type": "version",
     "tag": "v0.2.8",
-    "commit": "8447b3a8075586d25d31875c9e4503216d37a80f"
+    "commit": "26af2962a6ce603fd3ef5fd75557325a11d26c7d"
   },
   "_source": "https://github.com/predixDev/px-overlay.git",
   "_target": "~0.2.0",

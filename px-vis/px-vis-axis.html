@@ -2,6 +2,7 @@
 <link rel="import" href="px-vis-behavior-common.html" />
 <link rel="import" href="px-vis-behavior-d3.html" />
 <link rel="import" href="../px-colors-design/colors.html" />
+<link rel="import" href="../px-tooltip/px-tooltip.html" />
 
 
 <!--
@@ -12,8 +13,9 @@ d3 element creating an axis for the chart
     <px-vis-axis
         svg="[[svg]]"
         axis="[[x]]"
+        height="[[height]]"
         margin="[[margin]]"
-        title="Date"
+        title="[[Title]]"
         orientation="bottom"
         label-position="center"
         current-domain="[[currentDomainX]]">
@@ -30,7 +32,7 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
 <dom-module id="px-vis-axis">
     <link rel="import" type="css" href="css/px-vis.css"/>
     <template>
-
+      <px-tooltip id="tooltip" delay=500>{{title}} {{_currentUnits}}</px-tooltip>
     </template>
 </dom-module>
 
@@ -45,6 +47,7 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
           PxVisBehavior.completeSeriesConfig,
           PxVisBehavior.commonMethods,
           PxVisBehaviorD3.axisConfig,
+          PxVisBehavior.truncating,
           commonColors
         ],
 
@@ -58,19 +61,15 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
           /**
            * Holder for the instantiated d3 axis
            *
-           * @property _axis
-           * @type Object
            */
           _axis: {
             type: Object,
-            value: function() {return{};},
+            value: function() { return {}; },
             notify: true
           },
           /**
            * Holder for the axis drawing
            *
-           * @property _axisGroup
-           * @type Object
            */
           _axisGroup: {
             type: Object
@@ -78,8 +77,6 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
           /**
            * A unique ID for the axis
            *
-           * @property axisId
-           * @type String
            * @default random string
            */
           axisId: {
@@ -87,16 +84,59 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
             value: '',
             notify: true,
             reflectToAttribute: true
+          },
+          /**
+           * The truncated title
+           */
+          displayedTitle: {
+            type: String,
+            value: ''
+          },
+          /**
+           * Whether to append unit (if existing in config) in the title
+           */
+          appendUnitInTitle: {
+            type: Boolean,
+            value: false
+          },
+          /**
+           * Boolean to specify not to draw the series bars
+           */
+          preventSeriesBar: {
+            type: Boolean,
+            value: false
+          },
+          /**
+           * A boolean specifying if the axis should be completely redrawn every time
+           *
+           */
+          forceRefresh: {
+            type: Boolean,
+            value: false
+          },
+          /**
+           * The series ID this axis refers to, used to look in the config
+           */
+          seriesId: {
+            type: String
+          },
+          /**
+           * the text reprensenting the units of the axis
+           */
+          _currentUnits: {
+            type: String,
+            computed: '_computeUnits(appendUnitInTitle, completeSeriesConfig, title)'
           }
         },
 
         observers: [
           'drawElement(currentDomain,svg,axis,margin)',
-          'updateTicks(tickValues.*)',
+          // 'updateTicks(tickValues.*)',
           'drawSeriesBars(completeSeriesConfig.*)',
-          '_muteSeriesBars(mutedSeries.*)'
+          '_muteSeriesBars(mutedSeries.*)',
+          '_titleChanged(displayedTitle, _axisGroup, titleLocation)',
+          '_truncateTitle(title, truncationLength, appendUnitInTitle, completeSeriesConfig)'
         ],
-
 
         ready: function(){
           // if there is no dev set unique ID, generate one
@@ -168,63 +208,77 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          */
         drawElement: function() {
           this.debounce('drawAxis', function() {
+            if(this.svg.node()){
+              this.defineAxis();
+              // TODO unify my orientation checks
+              // TODO suport top and right
+              if(this.orientation === 'bottom'){
+                var h = this.height - this.margin.bottom - this.margin.top;
 
-            this.defineAxis();
-            // TODO unify my orientation checks
-            // TODO suport top and right
-            if(this.orientation === 'bottom'){
-              var h = this.height - this.margin.bottom - this.margin.top;
-
-              this.translateAmt = [0,h];
-            } else if(this.orientation === 'left'){
-              this.translateAmt = [0,0];
-            }
-
-            // checks to see if the axis already exists. If not, create; if so, update
-            if(!this._axisGroup) {
-              this._axisGroup = this.svg.append("g")
-                .attr("class", "axis")
-                .attr('axis-id',this.axisId)
-                .attr("transform", "translate(" + this.translateAmt.join(',') + ")")
-                .call(this._axis);
-                // .each(function(d) { d3.select(this).call(_this._axis.scale(_this.axis[d])); })
-
-              this._setLineStyles(this._axisGroup,'line,path');
-              this._setLabelStyles(this._axisGroup);
-
-              if(this.title) {
-                this.drawTitle();
+                this.translateAmt = [0,h];
+              } else if(this.orientation === 'left'){
+                this.translateAmt = [0,0];
               }
 
-              this.drawSeriesBars();
+              // checks to see if the axis already exists. If not, create; if so, update
+              if(!this._axisGroup) {
+                //beats me: sometimes the axis doesnt get removed from the last axis, so make sure it goes away
+                if(this.forceRefresh && this.svg.selectAll('g.axis').nodes().length > 0){
+                  console.log("Remove")
+                  this.svg.selectAll('g.axis').each(function(d){
+                    Px.d3.select(this).remove();
+                  });
+                }
+                this._buildAxis();
+                // alert parents that we are done drawing the axis
+                this.fire("px-axis-done");
+              } else {
+                if(this.forceRefresh){
+                  this._axisGroup.remove();
+                  this._axisGroup = null;
 
-              // alert parents that we are done drawing the axis
-              this.fire("px-axis-done");
-            } else {
-
-              // if we have tickValues, we'll update another way
-              if(!this.tickValues || this.tickValues.length === 0){
-                this._updateAxis();
+                  this.drawElement();
+                } else {
+                  // if we have tickValues, we'll update another way
+                  if(!this.tickValues || this.tickValues.length === 0){
+                    this._updateAxis();
+                  }
+                }
               }
             }
-          }.bind(this), 5);
+          }, 5);
+        },
+        /**
+         * builds axis
+         *
+         */
+        _buildAxis: function(){
+          var g = this.svg.append("g")
+            .attr("class", "axis")
+            .attr('axis-id',this.axisId)
+         //   .attr('debug-id',this.title)
+            .attr("transform", "translate(" + this.translateAmt.join(',') + ")")
+            .call(this._axis);
+            // .each(function(d) { d3.select(this).call(_this._axis.scale(_this.axis[d])); })
+
+          this.set('_axisGroup',g);
+
+          this._setLineStyles(this._axisGroup,'line,path');
+          this._setLabelStyles(this._axisGroup);
+
+         // this.drawSeriesBars();
         },
         /**
          * Updates the axis
          *
          */
-        _updateAxis: function(){
+        _updateAxis: function() {
           this._axisGroup
           .attr("transform", "translate(" + this.translateAmt.join(',') + ")")
           .call(this._axis);
 
          // this._setLineStyles(this._axisGroup,'line');
           this._setLabelStyles(this._axisGroup);
-	        
-          if(this.title) {
-            this.drawTitle();
-          }
-          this.drawSeriesBars();
 
           // alert parents that we are done drawing the axis
           this.fire("px-axis-done");
@@ -249,9 +303,9 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method setLabelDims
          */
-        setLabelDims: function(){
+        setLabelDims: function() {
           var label = {};
-          switch(this.orientation){
+          switch(this.orientation) {
             case 'bottom':
               label.x = this.labelTypeSize / 4;
               label.y = this.labelTypeSize / 4;
@@ -284,12 +338,13 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method _setLabelStyles
          */
-        _setLabelStyles:function(elem){
+        _setLabelStyles:function(elem) {
           elem.selectAll('text')
             .attr('font-size', this.labelTypeSize + 'px')
-            .attr('font-style','GE Inspira Sans');
+            .style('font-family','GE Inspira Sans');
+            // .attr('font-style','GE Inspira Sans');
 
-          if(this.labelPosition !== 'center'){
+          if(this.labelPosition !== 'center') {
             var label = this.setLabelDims();
 
             elem.selectAll('text')
@@ -305,7 +360,7 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method _setLineStyles
          */
-        _setLineStyles:function(elem,lines){
+        _setLineStyles:function(elem,lines) {
           elem.selectAll(lines)
             .attr('test','test')
             .attr('fill','none')
@@ -318,13 +373,12 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method drawTitle
          */
-        drawTitle:function(){
+        drawTitle:function() {
           var ext = this._axisGroup.node().getBBox(),
               location = this._doesObjHaveValues(this.titleLocation) ? 'custom' : this.orientation,
               x,y,r,anchor;
 
-
-          switch(location){
+          switch(location) {
             case 'bottom':
               x = parseFloat(ext['width']) / 2 + this.translateAmt[0];
               y = this.labelTypeSize * 1.5 + parseFloat(ext['height']) + this.translateAmt[1];
@@ -361,7 +415,14 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
               break;
           }
 
-          if(!this._titleGroup) {
+        if(!this._titleGroup) {
+          //beats me: sometimes the axis doesnt get removed from the last axis, so make sure it goes away
+          if(this.forceRefresh && this.svg.selectAll('g.title-group').nodes().length > 0){
+            console.log("remove")
+            this.svg.selectAll('g.title-group').each(function(d){
+              Px.d3.select(this).remove();
+            });
+          }
 
           this._titleGroup = this.svg.append("g")
             .attr('class','title-group')
@@ -371,33 +432,69 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
           this._titleGroup.append("text")
             .attr('class','axis-title')
             .attr('font-size', this.titleTypeSize + 'px')
-            .attr('font-style','GE Inspira Sans')
-            .text(this.title)
+            .style('font-family','GE Inspira Sans')
+            // .attr('font-style','GE Inspira Sans')
+            .text(this.displayedTitle)
             .attr("text-anchor", anchor)
             .style("text-anchor", anchor)
             .attr('transform',"rotate(" + r + ")");
-          } else {
 
-            this.svg.select('g.title-group[for=' + this.axisId + ']')
-              .attr('transform',"translate(" + x + ',' + y + ")");
-            this.svg.select('g.title-group[for=' + this.axisId + '] text')
-              .attr("text-anchor", anchor)
-              .style("text-anchor", anchor)
-              .attr('transform',"rotate(" + r + ")");
+          } else {
+            if(this.forceRefresh){
+              this._titleGroup.remove();
+              this._titleGroup = null;
+              this.drawTitle()
+            } else {
+              this.svg.select('g.title-group[for=' + this.axisId + ']')
+                .attr('transform',"translate(" + x + ',' + y + ")");
+              this.svg.select('g.title-group[for=' + this.axisId + '] text')
+                .attr("text-anchor", anchor)
+                .style("text-anchor", anchor)
+                .text(this.displayedTitle)
+                .attr('transform',"rotate(" + r + ")");
+
+            }
           }
+
+          // console.log(this._titleGroup)
+          // this._titleGroup = this.svg.selectAll("g.title-group")
+          //   .data([this.title]);
+          // console.log(this._titleGroup)
+          //
+          // this._titleGroup.exit().remove();
+          //
+          // this._titleGroup.enter()
+          //   .append("g")
+          //   .attr('class','title-group')
+          //   .attr('for', this.axisId)
+          //   .append("text")
+          //   .attr('class','axis-title')
+          //   .attr('font-size', this.titleTypeSize + 'px')
+          //   .attr('font-style','GE Inspira Sans')
+          //
+          // this._titleGroup.merge(this._titleGroup)
+          //   .attr('transform',"translate(" + x + ',' + y + ")")
+          //   .select('.axis-title')
+          //   .text(this.title)
+          //   .attr("text-anchor", anchor)
+          //   .style("text-anchor", anchor)
+          //   .attr('transform',"rotate(" + r + ")");
+
+          this._processTooltip();
+          this.drawSeriesBars();
         },
         /**
          * Draws the color bars for each series
          *
          * @method drawSeriesBars
          */
-        drawSeriesBars:function(){
-          if(this._doesObjHaveValues(this.completeSeriesConfig) && this._axisGroup){
+        drawSeriesBars:function() {
+          if(!this.preventSeriesBar && this._doesObjHaveValues(this.completeSeriesConfig) && this._axisGroup) {
             // FIXME do we need to move the title group based on how many series we have
             var keys = Object.keys(this.completeSeriesConfig),
                 kLen = keys.length,
                 i;
-            for(i = 0; i < kLen; i++){
+            for(i = 0; i < kLen; i++) {
               this._drawBar(this._titleGroup,keys[i],this.completeSeriesConfig[keys[i]]['color'],i);
             }
           }
@@ -407,12 +504,12 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method muteSeriesBars
          */
-        _muteSeriesBars:function(){
+        _muteSeriesBars:function() {
           var keys = Object.keys(this.mutedSeries);
-          for(var i = 0; i < keys.length; i++){
+          for(var i = 0; i < keys.length; i++) {
             var series = this._titleGroup.select('[series-bar-id=bar_' + keys[i] + ']');
             // if we want to mute it
-            if(this.mutedSeries[keys[i]]){
+            if(this.mutedSeries[keys[i]]) {
               series.attr('opacity',0.5);
             } else {
               series.attr('opacity',1);
@@ -424,7 +521,7 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
          *
          * @method drawSeriesBars
          */
-        _drawBar:function(elem,sid,color,index){
+        _drawBar:function(elem,sid,color,index) {
           var w = elem.select('.axis-title').node().getBoundingClientRect()['height'];
           elem.append("rect")
             .attr('height',3)
@@ -432,6 +529,58 @@ https://github.com/mbostock/d3/wiki/SVG-Axes
             .attr('fill',color)
             .attr('series-bar-id','bar_' + sid)
             .attr('transform',"translate(-12," + (-w - 8 * index) + ")");
+        },
+        _computeUnits: function(appendUnitInTitle, completeSeriesConfig, title) {
+          var result = '';
+
+          if(appendUnitInTitle && this.completeSeriesConfig[this.seriesId]
+                && this.completeSeriesConfig[this.seriesId].yAxisUnit) {
+              result = ' [' + this.completeSeriesConfig[this.seriesId].yAxisUnit + ']';
+          }
+
+          return result;
+        },
+        /**
+         * truncates the title label appropriately
+         */
+        _truncateTitle: function(title, truncationLength, appendUnitInTitle) {
+
+          this.debounce('_truncateTitle', function() {
+
+            var oldTitle = this._truncatedTitle,
+                newTitle;
+
+            newTitle = this._truncateName(title, truncationLength) + this._currentUnits;
+
+            if(newTitle !== oldTitle) {
+              this.fire('px-vis-axis-displayed-title-changed', {displayedTitle: newTitle, title: this.title});
+            }
+
+            //return newTitle;
+            this.set('displayedTitle', newTitle);
+           }, 5);
+        },
+        _titleChanged: function(displayedTitle) {
+          this.debounce('drawTitle', function() {
+            if(this._doesObjHaveValues(this._axisGroup) && this._axisGroup.node() !== null && this._axisGroup.node().ownerSVGElement !== null) {
+              this.drawTitle();
+            }
+          }.bind(this), 5);
+        },
+        /**
+         * checks it the label needs a tooltip an appropriately add or remove it
+         */
+        _processTooltip: function() {
+          var isTruncated = this.title.length > 2 && this.title.length > this.truncationLength,
+              containsTooltip = this._axisGroup.node().contains(this.$.tooltip);
+
+          if(!isTruncated && containsTooltip) {
+            //not needed anymore, remove
+            this._axisGroup.node().removeChild(this.$.tooltip);
+          } else if(isTruncated && !containsTooltip) {
+            this._axisGroup.node().appendChild(this.$.tooltip);
+            this.$.tooltip.for = this._titleGroup.node();
+          }
         }
     });
 </script>

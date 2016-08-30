@@ -1,3 +1,11 @@
+v0.7.8
+=================
+* updated bower to bring in codepen
+
+v0.7.7
+=================
+* Added tooltipParent property definition
+
 v0.7.6
 =================
 * added overflow to demoContainer and removed flex__wrap from mega-demo

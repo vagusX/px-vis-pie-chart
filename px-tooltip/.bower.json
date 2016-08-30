@@ -1,6 +1,6 @@
 {
   "name": "px-tooltip",
-  "version": "0.7.6",
+  "version": "0.7.8",
   "main": [
     "px-tooltip.html"
   ],
@@ -28,8 +28,8 @@
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
     "px-polymer-font-awesome": "^0.1.8",
     "px-tabs": "~0.4.0",
-    "px-api-viewer": "~0.0.3",
-    "px-demo-snippet": "^0.1.0",
+    "px-api-viewer": "~0.0.4",
+    "px-demo-snippet": "^0.4.0",
     "px-actionable-text-icons-design": "^0.0.3",
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
@@ -40,11 +40,11 @@
     "px-buttons-design": "^0.4.26"
   },
   "homepage": "https://github.com/PredixDev/px-tooltip",
-  "_release": "0.7.6",
+  "_release": "0.7.8",
   "_resolution": {
     "type": "version",
-    "tag": "v0.7.6",
-    "commit": "3c73909419dffda2ce8bc2bedd3ce12edcc0bb83"
+    "tag": "v0.7.8",
+    "commit": "35e475cfabe90f8145399d31e4b1670b8fe128ab"
   },
   "_source": "https://github.com/PredixDev/px-tooltip.git",
   "_target": "~0.7.0",

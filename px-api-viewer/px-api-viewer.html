@@ -93,7 +93,7 @@ Element providing API documentation for a requested Polymer component
     attached: function() {
       var hyd = require('hydrolysis');
       //have hydrolysis analyze the requested component
-      hyd.Analyzer.analyze(this.source)
+      hyd.Analyzer.analyze(this.source + ".html")
         .then(function(analyzer) {
           this._setElementDescriptor(analyzer);
           this.set('_analyzer', analyzer);
