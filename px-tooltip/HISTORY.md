@@ -1,3 +1,23 @@
+v0.9.2
+=================
+* bumped demo snippet
+
+v0.9.1
+=================
+* Reshow tooltip on mouseup
+
+v0.7.11
+=================
+* fixed style link issue
+
+v0.7.10
+=================
+* fixed style link issue
+
+v0.7.9
+=================
+* made tooltip be able to follow mouse cursor
+
 v0.7.8
 =================
 * updated bower to bring in codepen

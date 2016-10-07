@@ -1,10 +1,6 @@
-v1.4.2
-========================
-* updated package.json
-
 v1.4.1
 ========================
-* added grunt bump and ignored oss_notice
+* added oss_notice to bower ignore
 
 v1.4.0
 ========================

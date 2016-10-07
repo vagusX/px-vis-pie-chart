@@ -52,9 +52,13 @@ The configureation object allows developers to set the icon used for each event 
 @homepage index.html
 @demo demo.html
 -->
+
+<link rel="import" href="css/px-vis-styles.html">
+
 <dom-module id="px-vis-event">
-    <link rel="import" type="css" href="css/px-vis.css"/>
     <template>
+      <style include="px-vis-styles"></style>
+      <style include="px-theme-styles"></style>
       <px-tooltip
         id="eventTooltip"
         smart-orientation
@@ -190,7 +194,7 @@ The configureation object allows developers to set the icon used for each event 
     },
 
     observers: [
-      'drawElement(svg,x,y,currentDomainX,currentDomainY,eventData.*)',
+      'drawElement(svg,x,y,currentDomainX,currentDomainY,eventData.*,eventConfig.*)',
       '_addClipPath(clipPath)'
      ],
 
@@ -200,7 +204,6 @@ The configureation object allows developers to set the icon used for each event 
         this.set('eventId', this.generateRandomID('event_'));
       }
     },
-
     /**
      * Draws or updates the event element.
      * Called from an observer watching for data and the necessary d3 objects

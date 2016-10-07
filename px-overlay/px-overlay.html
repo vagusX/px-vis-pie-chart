@@ -26,9 +26,13 @@ Type light = 15% black
 @homepage index.html
 @demo demo.html
 -->
+
+<link rel="import" href="css/px-overlay-styles.html">
+
 <dom-module id="px-overlay">
-    <link rel="import" type="css" href="css/px-overlay.css"/>
     <template>
+      <style include="px-overlay-styles"></style>
+      <style include="px-theme-styles"></style>
       <div id="overlay" class$="{{_getOverlayClass(type)}}"></div>
     </template>
 </dom-module>

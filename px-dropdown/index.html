@@ -7,11 +7,14 @@
   <link rel="stylesheet" type="text/css" href="css/px-dropdown-demo.css"/>
   <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../px-theme/px-theme.html"/>
+
+  <link rel="import" href="../px-theme/px-theme-styles.html">
+  <style include="px-theme-styles" is="custom-style"></style>
+
   <link rel="import" href="../px-api-viewer/px-api-viewer.html" />
   <link rel="import" href="../px-tabs/px-tab-set.html" />
   <link rel="import" href="px-dropdown.html"/>
-  <link rel="icon" href="px-favicon.png" type="image/x-icon"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
   <link rel="import" href="../px-polymer-font-awesome/polymer-font-awesome.html" />
   <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
@@ -52,7 +55,7 @@
       <px-tab-pages selected="{{selected}}">
         <template is="dom-repeat" items="{{optionsArray}}">
           <section class="tab-page">
-            <div class="mega-demo flex flex--wrap u-ph++ u-pb++">
+            <div class="mega-demo flex u-ph++ u-pb++">
               <!-- Properties -->
               <div class="properties u-ph+ u-pb+ u-mt+">
                   <p class="epsilon">Properties</p>
@@ -67,25 +70,27 @@
                   <div class="u-ml-">Prevent Close On Outside Click</div>
                 </div>
                 <div class="u-mb-">Display Value: <input class="text-input" type="text" placeholder="{{item.displayValue}}" value="{{item.displayValue::input}}" /></div>
+                <div class="u-mb-">Selected Key: <input class="text-input" type="text" placeholder="{{item.selectedKey}}" value="{{item.selectedKey::input}}" /></div>
               </div>
 
               <div class="demoContainer u-mt+">
                 <!-- demo -->
                 <div class="flex flex--col">
-                  <div class="flex__item demo u-p+">
+                  <div class="demo u-p+">
 
                     <div style="width: 150px;">
                       <px-dropdown
                         display-value="{{item.displayValue}}"
                         hide-chevron="{{item.hideChevron}}"
+                        selected-key="{{item.selectedKey}}"
                         prevent-close-on-outside-click="{{item.preventCloseOnOutsideClick}}">
-                        <px-dropdown-content extend-dropdown="true" extend-dropdown-by="25" max-cont-character-width="10" items="[[item.list]]">
+                        <px-dropdown-content extend-dropdown="true" extend-dropdown-by="25" max-cont-character-width="10" items="{{list}}">
                         </px-dropdown-content>
                       </px-dropdown>
                     </div>
 
                   </div>
-                  <div class="flex__item">
+                  <div>
                     <px-demo-snippet
                       element-properties={{item}}
                       element-name="px-dropdown">
@@ -102,9 +107,7 @@
                       <div class="componentHeader">Children Component</div>
                       <div class="componentList">
                         <ul>
-                          <li><a href="px-dropdown-text-demo.html">px-dropdown-text</a></li>
                           <li><a href="px-dropdown-content-demo.html">px-dropdown-content</a></li>
-                          <li><a href="px-dropdown-chevron-demo.html">px-dropdown-chevron</a></li>
                         </ul>
                       </div>
                     </div>
@@ -145,7 +148,7 @@
             <li>
               <a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
             </li>
-            <li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
+            <li>Copyright &copy; 2016 General Electric Company. All rights reserved.</li>
           </ul>
         </div>
       </div>
@@ -154,44 +157,30 @@
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
-      year = new Date(),
+      list = [
+          {"key":"one", "val": "Iphone"},
+          {"key":"two", "val": "Android"},
+          {"key":"three", "val": "Blackberry"},
+          {"key":"four", "val": "Windows Phone"}
+        ],
       optionsArray = [
         {
           above:false,
           displayValue:"Elephant",
           hideChevron:false,
           preventCloseOnOutsideClick:false,
-          list:[
-              {"key":"one", "val": "Iphone"},
-              {"key":"two", "val": "Android"},
-              {"key":"three", "val": "Blackberry"},
-              {"key":"four", "val": "Windows Phone"}
-            ]
-        },
-        {
-          above:true,
-          displayValue:"Cougar",
-          hideChevron:true,
-          preventCloseOnOutsideClick:true,
-          list:[
-              {"key":"one", "val": "Linux"},
-              {"key":"two", "val": "Mac"},
-              {"key":"three", "val": "Windows"},
-              {"key":"four", "val": "Spark"},
-              {"key":"five", "val": "NeXT"}
-            ]
+          selectedKey: "",
+          lightDomContent: "<px-dropdown-content extend-dropdown='true' extend-dropdown-by='25' max-cont-character-width='10' items='" + JSON.stringify(list) + "'></px-dropdown-content>"
         }
       ],
       indexPlusOne = function(num) {
         return num + 1;
       };
 
-  year = year.getFullYear();
-
   template.selected = "0";
   template.optionsArray = optionsArray;
   template.indexPlusOne = indexPlusOne;
-  template.year = year;
+  template.list = list;
 });
 </script>
 
