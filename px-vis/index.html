@@ -42,7 +42,7 @@
   <!-- Wrap elements with auto-binding template to -->
   <!-- allow use of Polymer bindings in main document -->
     <!-- discription -->
-    <div class="hero u-p++ text--shadow">
+    <div class="hero u-p++ text--shadow" id="px-vis-anchor">
       <a class="actionable flex flex--right flex--middle" href="https://github.com/PredixDev/px-vis" target="_blank"><iron-icon class="menu__open" icon="fa:fa-github"></iron-icon>View on Github</a>
   		<h1 class="delta">px-vis</h1>
       <div class="description-text">
@@ -58,6 +58,29 @@
   			<img class="u-mr--" src="https://img.shields.io/bower/v/px-vis.svg?style=flat-square" alt="Bower" onerror="this.style.display='none'"/>
   			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/px-vis.svg?style=flat-square" alt="Issues" onerror="this.style.display='none'"/>
   		</div>
+      <div class="u-mt jump-nav">
+        <a href="#px-vis-svg-anchor" class="actionable">px-vis-svg</a> <br/>
+        <a href="#px-vis-scale-anchor" class="actionable">px-vis-scale</a> <br/>
+        <a href="#px-vis-line-anchor" class="actionable">px-vis-line</a> <br/>
+        <a href="#px-vis-scatter-anchor" class="actionable">px-vis-scatter</a> <br/>
+        <a href="#px-vis-axis-x-anchor" class="actionable">px-vis-axis: x-axis</a> <br/>
+        <a href="#px-vis-axis-y-anchor" class="actionable">px-vis-axis: y-axis</a> <br/>
+        <a href="#px-vis-gridlines-y-anchor" class="actionable">px-vis-gridlines-y</a> <br/>
+        <a href="#px-vis-gridlines-x-anchor" class="actionable">px-vis-gridlines-x</a> <br/>
+        <a href="#px-vis-event-anchor" class="actionable">px-vis-event</a> <br/>
+        <a href="#px-vis-threshold-anchor" class="actionable">px-vis-threshold</a> <br/>
+        <a href="#px-vis-interaction-space-anchor" class="actionable">px-vis-interaction-space</a> <br/>
+        <a href="#px-vis-cursor-anchor" class="actionable">px-vis-cursor</a> <br/>
+        <a href="#px-vis-register-horizontal-anchor" class="actionable">px-vis-register-horizontal</a> <br/>
+        <a href="#px-vis-register-vertical-anchor" class="actionable">px-vis-register-vertical</a> <br/>
+        <a href="#px-vis-register-dynamic-anchor" class="actionable">px-vis-register-dynamic</a> <br/>
+        <a href="#px-vis-tooltip-anchor" class="actionable">px-vis-tooltip</a> <br/>
+        <a href="#px-vis-zoom-anchor" class="actionable">px-vis-zoom</a> <br/>
+        <a href="#px-vis-chart-navigator-anchor" class="actionable">px-vis-chart-navigator</a> <br/>
+        <a href="#px-vis-data-converter-anchor" class="actionable">px-vis-data-converter</a> <br/>
+        <a href="#px-vis-api-anchor" class="actionable">api documentation</a>
+
+      </div>
   	</div>
 
     <!-- mega demo -->
@@ -69,65 +92,15 @@
       <br/>
       <px-vis-line-demo></px-vis-line-demo>
       <br/>
-      <px-vis-scatter-demo 
-        width="500"
-        height="200"
-        margin='{ "top": "10", "bottom": "10", "left": "10", "right": "10" }'
-        chart-data='[{
-            "x": 1397102460000,
-            "y": 0.56
-          }, {
-            "x": 1397139660000,
-            "y": 0.4
-          }, {
-            "x": 1397177400000,
-            "y": 0.43
-          }, {
-            "x": 1397228040000,
-            "y": 0.33
-          }, {
-            "x": 1397248260000,
-            "y": 0.47
-          }, {
-            "x": 1397291280000,
-            "y": 0.41
-          }, {
-            "x": 1397318100000,
-            "y": 0.26
-          }, {
-            "x": 1397342100000,
-            "y": 0.42
-          }, {
-            "x": 1397390820000,
-            "y": 0.27
-          }, {
-            "x": 1397408100000,
-            "y": 0.38
-          }, {
-            "x": 1397458800000,
-            "y": 0.36
-          }, {
-            "x": 1397522940000,
-            "y": 0.32
-          }]'
-        series-config='{
-            "mySeries": {
-              "name": "My-Series",
-              "type": "line",
-              "x": "x",
-              "y": "y",
-              "color": "rgb(93,165,218)"
-            }
-          }'
-      ></px-vis-scatter-demo>
+      <px-vis-scatter-demo></px-vis-scatter-demo>
       <br/>
       <px-vis-axis-x-demo></px-vis-axis-x-demo>
       <br/>
       <px-vis-axis-y-demo></px-vis-axis-y-demo>
       <br/>
-      <px-vis-gridlines-y-demo></px-vis-gridlines-y-demo>
-      <br/>
       <px-vis-gridlines-x-demo></px-vis-gridlines-x-demo>
+      <br/>
+      <px-vis-gridlines-y-demo></px-vis-gridlines-y-demo>
       <br/>
       <px-vis-event-demo></px-vis-event-demo>
       <br/>
@@ -152,11 +125,13 @@
       <px-vis-data-converter-demo></px-vis-data-converter-demo>
       <br/>
 
+      <!-- <div class="back-to-top pointer" onclick="scrollToTop();return false;">Back to top ^</div> -->
+
     </div>
     <div class="apiContainer">
       <div class="flex flex--col api u-mt++" >
         <div>
-          <px-api-viewer source="px-vis"></px-api-viewer>
+          <px-api-viewer id="px-vis-api-anchor" source="px-vis"></px-api-viewer>
         </div>
       </div>
     </div>
@@ -180,5 +155,15 @@
         </div>
       </div>
     </footer>
+    <script>
+      // var timeOut;
+      // function scrollToTop() {
+      //     if (document.body.scrollTop!=0 || document.documentElement.scrollTop!=0){
+      //         window.scrollBy(0,-50);
+      //         timeOut = setTimeout('scrollToTop()', 2);
+      //     }
+      //     else clearTimeout(timeOut);
+      // }
+  </script>
 </body>
 </html>

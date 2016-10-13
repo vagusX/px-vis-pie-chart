@@ -1,3 +1,48 @@
+v0.6.4
+==================
+* Updated docs across all components
+
+v0.6.3
+==================
+* ensure brushing works when resizing
+
+v0.6.2
+==================
+* added rect clip path for canvas
+* update docs
+
+v0.6.1
+==================
+* ensure brush initializes
+* ensure multi axis passes the font size down
+
+v0.6.0
+==================
+* exposed number formatting in register and tooltip
+* changed opacity on hover in scatter-radial
+* fixed axis series bar opacity on drawing
+* fixed muting a series with a '.' in the id when clicking register
+* fixed d3 console errors
+* refactored navigator initialization
+* exclude 'null' data point from line and scatter
+* added clip path to canvas
+* fixed bugs with the new register
+* fixed area clip path to work with iron resize
+
+v0.5.13
+==================
+* Merged reigster refactor
+
+v0.5.12
+==================
+* Fixed vis demo
+* all demos and demo snippets are up to date and working
+* added codepen links
+
+v0.5.11
+==================
+* draw max value in radial gridlines
+
 v0.5.10
 ==================
 * redraw axis on tick change
