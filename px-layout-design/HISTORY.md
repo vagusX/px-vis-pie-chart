@@ -1,3 +1,24 @@
+v0.3.18
+==============================
+* updated to px-sass-doc#0.2.8
+
+v0.3.17
+==============================
+* Minor style canges to demo and added more discription in Use it in your project
+
+v0.3.16
+==============================
+* PR #3 which fixed import, also fixed dependencies
+
+v0.3.15
+==============================
+* Updated dependencies
+* Updated boilerplate files
+
+v0.3.14
+==============================
+* added new demo and auto-ghp
+
 v0.3.13
 ==============================
 * updated oss notice and readme, pointing to gh-pages

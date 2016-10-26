@@ -1,6 +1,6 @@
 {
   "name": "px-vis-pie-chart",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": [
     "px-vis-pie-chart.html"
   ],
@@ -36,16 +36,19 @@
     "px-demo-snippet": "^0.6.4",
     "px-list-inline-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
-    "px-actionable-text-icons-design": "^0.0.3",
+    "px-actionable-text-icons-design": "^0.1.0",
     "px-toggle-design": "^0.2.12"
   },
   "resolutions": {
-    "px-functions-design": "~0.3.3",
-    "px-typography-design": "^1.1.0",
+    "px-defaults-design": "^0.3.0",
     "px-tooltip": "~0.9.0",
-    "px-theme": "~1.1.2",
+    "px-theme": "^1.1.2",
+    "px-typography-design": "~1.1.1",
+    "px-iconography-design": "^0.3.1",
+    "iron-ajax": "~1.4.3",
+    "px-actionable-text-icons-design": "^0.1.0",
+    "px-functions-design": "~1.0.0",
     "px-datetime-common": "~0.6.3",
-    "iron-ajax": "^1.4.3",
     "px-dropdown": "~0.12.1",
     "px": "~1.4.3"
   }

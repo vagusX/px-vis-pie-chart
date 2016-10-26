@@ -1,3 +1,15 @@
+v0.1.6
+==================
+* added title to clipboard icon
+
+v0.1.5
+==================
+* added hover state to clipboard icon
+
+v0.1.4
+==================
+* latest demo snippet dependency and latest gulpfile.
+
 v0.1.3
 ==================
 * changed icon to float--right, moved cursor:pointer to just the icon

@@ -1,3 +1,43 @@
+v0.6.14
+==================
+* fix registers for pie
+
+v0.6.13
+==================
+* added delaying chart draw until attached
+
+v0.6.12
+==================
+* added additional check to radial scale
+
+v0.6.11
+==================
+* changes for demo
+
+v0.6.10
+==================
+* make sure scatter removes on detached
+
+v0.6.9
+==================
+* ensure forceDateTimeDisplay works with new registers
+
+v0.6.8
+==================
+* fix typo that would break the navigator series drawing
+
+v0.6.7
+==================
+* make sure addition/removal of series to seriesConfig are correctly processed
+
+v0.6.6
+==================
+* Added datetime imports to tooltip and passed down to register
+
+v0.6.5
+==================
+* Made tooltip detach px-tooltip
+
 v0.6.4
 ==================
 * Updated docs across all components

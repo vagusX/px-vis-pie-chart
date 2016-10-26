@@ -1,3 +1,20 @@
+v0.2.20
+==============================
+* updated to px-sass-doc#0.2.8
+
+v0.2.19
+==============================
+* Updated dependencies
+* Updated boilerplate files
+
+v0.2.18
+==============================
+* updated sassdoc.json and did minnor edits on index
+
+v0.2.17
+==============================
+* updated px-sass-doc and did minor edits on index
+
 v0.2.16
 ==============================
 * Updated travis test configuration
