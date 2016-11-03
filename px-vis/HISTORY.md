@@ -1,6 +1,73 @@
+v0.6.25
+==================
+* removed extra {
+
+v0.6.24
+==================
+* fixed merge conflict
+
+v0.6.23
+==================
+* added check for chartData being undefined in chartCommon
+
+v0.6.22
+==================
+* fixed completeSeriesConfig generation for mins and maxes
+* added checks for d3 selection existance
+* changed clip path declaration
+* better fixed linePath/lineGroup not being defined on detach
+
+v0.6.21
+==================
+* Added PxVisBehaviorChart.registerPositioning behavior to avoid code duplication
+* Allow interaction space action box to be drawn with mouse outside of interaction space
+* prevent errors when releasing mouse button on interaction space when the click had started outside of it
+* Call notifyResize when preventResize becomes false
+
+v0.6.20
+==================
+* fixed chartExtents running prematurely
+* fixed linePath not being defined on detach
+
+v0.6.19
+==================
+* fixed bug with range moment conversion
+* added check to scale for x and y before selectedDomain
+
+v0.6.18
+==================
+* moved polyfills into its own file
+* fixed on-hover when chart all data is removed
+* set extents to range when available to avoid race condition on selectedDomain and chartExtents
+* pass seriesKeys to interaction space to remove registers on all data removed
+* added 0 check to width and height in interaction space
+* changed data converter to return empty dataset if originalData is empty
+
+v0.6.17
+==================
+* make sure progressive rendering doesn't "break" the line between batches
+* ensure datasets with 5 or less points still render when progressive rendering is on
+
+v0.6.16
+==================
+* included includes polyfill for IE11
+
+v0.6.15
+==================
+* bug fix for radial scale
+* fixed useDegrees for line
+* misc other bug fixes
+* fixed register with 0 value
+* changes to README
+* bug fixes for brush to prevent negative values
+* added various truthy tests for 0 values throughout
+* fix for register with value = 0
+
 v0.6.14
 ==================
 * fix registers for pie
+* moved forcedatetimedisplay to behavior
+* general bug fixes for register
 
 v0.6.13
 ==================

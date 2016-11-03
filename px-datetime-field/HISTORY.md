@@ -1,3 +1,7 @@
+v0.4.13
+==================
+* Fixed demo event counter (issue #3)
+
 v0.4.11
 ==================
 * changed moment.tz to Px.moment.tz in tests

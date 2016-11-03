@@ -7,10 +7,12 @@
   <link rel="stylesheet" type="text/css" href="css/px-datetime-field-demo.css"/>
   <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
   <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../px-theme/px-theme.html"/>
+
+  <link rel="import" href="../px-theme/px-theme-styles.html">
+  <style include="px-theme-styles" is="custom-style"></style>
+
   <link rel="import" href="../px-api-viewer/px-api-viewer.html" />
   <link rel="import" href="../px-tabs/px-tab-set.html" />
-  <link rel="import" href="../iron-component-page/iron-component-page.html"/>
   <link rel="import" href="px-datetime-field.html"/>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="import" href="../px-demo-snippet/px-demo-snippet.html">
@@ -130,13 +132,13 @@
                 <!-- demo -->
                 <div class="flex flex--col">
                   <div class="demo u-p+">
-                  <span id="counter"><strong>px-datetime-field-submitted</strong> fired <strong>0</strong> time</span>
+                  <span id="counter{{indexPlusOne(index)}}"><strong>px-datetime-submitted</strong> fired <strong>0</strong> time(s)</span>
                   <div>
                     Current dateTime object: <strong>{{item.dateTime}}</strong>
                   </div>
                   <br />
                   <px-datetime-field
-                    id="dateTime"
+                    id="dateTime{{indexPlusOne(index)}}"
                     date-time="{{item.dateTime}}"
                     date-format="{{item.dateFormat}}"
                     time-format="{{item.timeFormat}}"
@@ -185,7 +187,7 @@
           <li>
             <a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
           </li>
-          <li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
+          <li>Copyright &copy; 2016 General Electric Company. All rights reserved.</li>
         </ul>
       </div>
     </div>
@@ -195,12 +197,12 @@
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
-      year = new Date(),
       dateTime = "2016-01-01T01:00:00.000Z",
       dateFormat = ["YYYY/MM/DD","MM/DD/YY","DD/MM/YY"],
       timeFormat = ["hh:mm:ss A","HH:mm:ss.SSS"],
       showTimeZone = ["text","abbreviatedText","dropdown"],
-      timeZone =["UTC","America/Los_Angeles","America/New_York"];
+      timeZone =["UTC","America/Los_Angeles","America/New_York"],
+      counter = 0;
 
   var optionsArray = [
     {
@@ -248,12 +250,18 @@ window.addEventListener('WebComponentsReady', function() {
       return num + 1;
     };
 
-    year = year.getFullYear();
+    document.addEventListener('px-datetime-submitted', function(evt) {
+      counter++;
+      for(var i=1; i<=optionsArray.length; i++) {
+        var span = document.getElementById('counter'+i);
+        span.innerHTML = '<strong>px-datetime-submitted</strong> fired <strong>' + counter + '</strong> time(s)';
+      }
+    });
+
 
     template.selected = "0";
     template.optionsArray = optionsArray;
     template.indexPlusOne = indexPlusOne;
-    template.year = year;
 
 });
 </script>

@@ -2,18 +2,6 @@
 <link rel="import" href="px-vis-imports.html" />
 <link rel="import" href="px-vis-behavior-common.html" />
 <script>
-/*
-  Polyfill to add .remove() for IE11.
-  We can remove this when IE11 support is dropped
-*/
-if (!('remove' in Element.prototype)) {
-    Element.prototype.remove = function() {
-        if (this.parentNode) {
-            this.parentNode.removeChild(this);
-        }
-    };
-}
-/***************************************/
 
 Px.d3 = d3;
 
@@ -618,7 +606,7 @@ PxVisBehaviorD3.clipPath = {
    * @method addClipPath
    */
   addClipPath: function(elem) {
-    if(typeof(this.clipPath) !== 'undefined' && !this._isObjEmpty(elem)){
+    if(typeof(this.clipPath) !== 'undefined' && this._doesD3HaveValues(elem)){
       elem.attr("clip-path", 'url(#' + this.clipPath + ')');
     }
   }
@@ -912,8 +900,6 @@ PxVisBehaviorD3.radialLineGenerator = [{
 
     if(multiLine) {
 
-      var processAngle;
-
       if(this.interpolationFunction === 'bofCompleteManually') {
         //manually complete the circle.
         // if we use a d3 interpolator, it adds 'Z' to the path which cause all broken paths to complete. We want to keep broken paths broken
@@ -955,11 +941,11 @@ PxVisBehaviorD3.radialLineGenerator = [{
 
       if(useDegrees) {
         processAngle = function(d) {
-          return d[xId] * clockwiseFactor;
+          return d[xId]/180 * Math.PI * clockwiseFactor;
         };
       } else {
         processAngle = function(d) {
-          return d[xId]/180 * Math.PI * clockwiseFactor;
+          return d[xId] * clockwiseFactor;
         };
       }
 
@@ -1073,8 +1059,8 @@ PxVisBehaviorD3.lineShared = [{
     };
 
     // if coloring by category
-    if(categories.length > 0){
-      for(var i = 0; i < categories.length; i++){
+    if(categories.length > 0) {
+      for(var i = 0; i < categories.length; i++) {
         if(completeSeriesConfig[categories[i]]) {
           c = completeSeriesConfig[categories[i]]['color'].split('(')[1].split(',');
           colors[categories[i]] = {
@@ -1105,9 +1091,9 @@ PxVisBehaviorD3.lineShared = [{
    *
    */
   _computeGradientRange: function(chartData, selectedDomain,seriesId){
-    if(chartData.value.length > 0){
+    if(chartData.value.length > 0) {
       var x1,x2;
-      if(selectedDomain.value.x.length > 0){
+      if(selectedDomain.value.x.length > 0) {
         x1 = Number(selectedDomain.value.x[0]);
         x2 = Number(selectedDomain.value.x[1]);
       } else {

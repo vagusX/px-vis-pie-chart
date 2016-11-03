@@ -1,3 +1,12 @@
+
+v0.4.35
+==================
+* patch test
+
+v0.4.34
+==============================
+* updating to fix safari demo height bug
+
 v0.4.33
 ==============================
 * updated to px-sass-doc#0.2.8
@@ -22,7 +31,7 @@ v0.4.29
 v0.4.28
 ==============================
 * fixed bower.json
-
+ç
 v0.4.27
 ==============================
 * added new demo and auto-ghp
