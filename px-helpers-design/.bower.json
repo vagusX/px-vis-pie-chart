@@ -34,7 +34,7 @@
     "tag": "0.3.12",
     "commit": "4b77e7d92244865829a327d7e1d55241928f042f"
   },
-  "_source": "https://github.com/PredixDev/px-helpers-design.git",
-  "_target": "~0.3.0",
-  "_originalSource": "https://github.com/PredixDev/px-helpers-design.git"
+  "_source": "https://github.com/predixDev/px-helpers-design.git",
+  "_target": "^0.3.7",
+  "_originalSource": "px-helpers-design"
 }

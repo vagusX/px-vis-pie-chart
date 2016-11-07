@@ -35,7 +35,7 @@
     "tag": "0.3.13",
     "commit": "635f47ad650b86b1aebaa20a4df82d10ee4dc163"
   },
-  "_source": "https://github.com/PredixDev/px-flexbox-design.git",
-  "_target": "~0.3.0",
-  "_originalSource": "https://github.com/PredixDev/px-flexbox-design.git"
+  "_source": "https://github.com/predixDev/px-flexbox-design.git",
+  "_target": "^0.3.0",
+  "_originalSource": "px-flexbox-design"
 }

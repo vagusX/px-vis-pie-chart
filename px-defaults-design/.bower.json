@@ -35,6 +35,6 @@
     "commit": "c6adce53f39aa82487f4f34dbcbba2ab0386b196"
   },
   "_source": "https://github.com/predixDev/px-defaults-design.git",
-  "_target": "~0.3.0",
+  "_target": "^0.3.0",
   "_originalSource": "px-defaults-design"
 }
