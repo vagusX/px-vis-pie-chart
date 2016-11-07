@@ -38,6 +38,6 @@
     "commit": "08a6472ccdc273862dca903b7ff793695a025d6b"
   },
   "_source": "https://github.com/predixDev/px-forms-design.git",
-  "_target": "^0.3.16",
+  "_target": "~0.3.17",
   "_originalSource": "px-forms-design"
 }

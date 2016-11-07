@@ -38,6 +38,6 @@
     "commit": "b188c34ec16d9f37eb58fac94882454734c1f5d3"
   },
   "_source": "https://github.com/predixDev/px-buttons-design.git",
-  "_target": "~0.4.20",
+  "_target": "^0.4.26",
   "_originalSource": "px-buttons-design"
 }

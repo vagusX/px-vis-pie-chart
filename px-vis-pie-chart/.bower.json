@@ -47,6 +47,7 @@
     "commit": "61bb506f5831db119fc4c49713821fafbca56280"
   },
   "_source": "https://github.com/PredixDev/px-vis-pie-chart.git",
-  "_target": "^0.2.0",
-  "_originalSource": "px-vis-pie-chart"
+  "_target": "^0.2.5",
+  "_originalSource": "px-vis-pie-chart",
+  "_direct": true
 }
