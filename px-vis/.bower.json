@@ -1,13 +1,13 @@
 {
   "name": "px-vis",
-  "version": "0.6.31",
+  "version": "0.6.34",
   "main": [
     "px-vis.html"
   ],
   "ignore": [
     ".*",
     "npm-debug.log",
-    "Gruntfile.js",
+    "gulpfile.js",
     "sass",
     "bower_components",
     "node_modules",
@@ -53,11 +53,11 @@
     "px-actionable-text-icons-design": "^0.1.0"
   },
   "homepage": "https://github.com/PredixDev/px-vis",
-  "_release": "0.6.31",
+  "_release": "0.6.34",
   "_resolution": {
     "type": "version",
-    "tag": "v0.6.31",
-    "commit": "dd33420281cebacd590c36c59ef2c2a72b991422"
+    "tag": "v0.6.34",
+    "commit": "f6b734cfbc26a9d82bd41c5f4b8a5dcb21aca3ea"
   },
   "_source": "https://github.com/PredixDev/px-vis.git",
   "_target": "~0.6.0",

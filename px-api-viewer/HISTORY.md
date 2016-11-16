@@ -1,3 +1,8 @@
+
+v0.1.1
+==================
+* changing Gruntfile.js to gulpfile.js
+
 v0.0.5
 ==================
 * fixed source reference bug

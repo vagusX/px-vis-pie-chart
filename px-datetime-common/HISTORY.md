@@ -1,3 +1,8 @@
+
+v0.6.9
+==================
+* changing Gruntfile.js to gulpfile.js
+
 v0.6.8
 ==================
 * fixed test

@@ -1,13 +1,13 @@
 {
   "name": "px-clipboard",
-  "version": "0.1.11",
+  "version": "0.1.13",
   "main": [
     "px-clipboard.html"
   ],
   "ignore": [
     ".*",
     "npm-debug.log",
-    "Gruntfile.js",
+    "gulpfile.js",
     "sass",
     "bower_components",
     "node_modules",
@@ -39,13 +39,13 @@
     "px-list-inline-design": "^0.2.11"
   },
   "homepage": "https://github.com/predixdev/px-clipboard",
-  "_release": "0.1.11",
+  "_release": "0.1.13",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.11",
-    "commit": "7807b7479392a0003f01d35a215890e23956dd48"
+    "tag": "v0.1.13",
+    "commit": "d370771291fae66bdad64a5569e05839b2700429"
   },
   "_source": "https://github.com/predixdev/px-clipboard.git",
-  "_target": "^0.1.1",
+  "_target": "~0.1.9",
   "_originalSource": "px-clipboard"
 }
