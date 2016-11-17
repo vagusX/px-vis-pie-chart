@@ -1,3 +1,11 @@
+v0.6.11
+==================
+* removing px-theme style call
+
+v0.6.10
+==================
+* merging 'cell width issue' branch
+* fixed fontSize returning 0px bug
 
 v0.6.9
 ==================
