@@ -1,7 +1,21 @@
+v0.6.38
+==================
+* fixed axis tickFormat check so it looks for function, not object
+
+v0.6.37
+==================
+* fixed for event icons and clip path; changed how redrawing event icons works
+* added check to ensure that dates from currentDomain is valid for brush
+* fixed isObjEmpty check so it also checks for null
+
+v0.6.36
+==================
+* fixed axis ticks setting when it is only an object
+* added ability for axis tickFormat to be an object
+
 v0.6.35
 ==================
 * removing px-theme style call
-
 
 v0.6.34
 ==================
