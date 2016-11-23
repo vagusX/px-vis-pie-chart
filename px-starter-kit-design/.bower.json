@@ -52,6 +52,6 @@
     "commit": "cda6810349fd65af5009b43eb8ceef446309a065"
   },
   "_source": "https://github.com/predixDev/px-starter-kit-design.git",
-  "_target": "~0.6.0",
+  "_target": "^0.6.0",
   "_originalSource": "px-starter-kit-design"
 }

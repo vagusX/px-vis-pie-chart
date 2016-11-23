@@ -1,6 +1,6 @@
 {
   "name": "px-api-viewer",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "main": [
     "px-api-viewer.html"
   ],
@@ -24,16 +24,16 @@
     "px-polymer-font-awesome": "^0.1.8"
   },
   "devDependencies": {
-    "px-starter-kit-design": "~0.6.0"
+    "px-starter-kit-design": "^0.6.0"
   },
   "homepage": "https://github.com/PredixDev/px-api-viewer",
-  "_release": "0.1.11",
+  "_release": "0.1.12",
   "_resolution": {
     "type": "version",
-    "tag": "v0.1.11",
-    "commit": "699f8c74b486b98ae586a944f1176fb4951b5713"
+    "tag": "v0.1.12",
+    "commit": "c205172fb28b9ccbb0b130d2b9debdade866360f"
   },
   "_source": "https://github.com/PredixDev/px-api-viewer.git",
-  "_target": "~0.1.0",
+  "_target": "^0.1.0",
   "_originalSource": "px-api-viewer"
 }

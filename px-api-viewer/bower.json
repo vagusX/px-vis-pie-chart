@@ -1,6 +1,6 @@
 {
     "name": "px-api-viewer",
-    "version": "0.1.11",
+    "version": "0.1.12",
     "main": [
         "px-api-viewer.html"
     ],
@@ -24,6 +24,6 @@
         "px-polymer-font-awesome": "^0.1.8"
     },
     "devDependencies": {
-        "px-starter-kit-design": "~0.6.0"
+        "px-starter-kit-design": "^0.6.0"
     }
 }

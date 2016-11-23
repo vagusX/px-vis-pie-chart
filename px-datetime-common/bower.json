@@ -1,6 +1,6 @@
 {
     "name": "px-datetime-common",
-    "version": "0.6.15",
+    "version": "0.6.16",
     "main": [
         "px-datetime-common.html"
     ],
@@ -24,11 +24,11 @@
     },
     "devDependencies": {
         "iron-component-page": "PolymerElements/iron-component-page#~v1.1.0",
-        "px-starter-kit-design": "~0.6.0",
-        "px-buttons-design": "~0.4.20",
-        "px-forms-design": "~0.3.0",
-        "px-list-bare-design": "~0.2.0",
-        "px-tables-design": "~0.3.0",
+        "px-starter-kit-design": "^0.6.0",
+        "px-buttons-design": "^0.4.20",
+        "px-forms-design": "^0.3.0",
+        "px-list-bare-design": "^0.2.0",
+        "px-tables-design": "^0.3.0",
         "px-actionable-text-icons-design": "^0.1.0"
     }
 }
