@@ -39,6 +39,15 @@ elements are not supported.
         </div>
     </div>
 
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--px-popover-background-color` | Background color for the popover | `$white`
+`--px-popover-border-color` | Border color for the popover | `$gray4`
+`--px-popover-text-color` | Color for the text | `$black`
+
 @element px-popover
 @blurb Element providing popover interactions to the applicaiton developers.
 @homepage index.html
@@ -50,15 +59,20 @@ elements are not supported.
 <dom-module id="px-popover">
     <template>
       <style include="px-popover-styles"></style>
-      <style include="px-theme-styles"></style>
+      
       <template is="dom-if" if="{{!hideOverlay}}">
         <px-overlay type="light" class="fadeFromVisible"></px-overlay>
       </template>
       <div id="popoverWrapper" class="fadeFromVisible">
           <div id="carat"></div>
           <div id="popover">
+            <template is="dom-if" if="{{!enhanced}}">
               <p class="weight--semibold">{{popoverTitle}}</p>
               <p>{{popoverBody}}</p>
+            </template>
+            <template is="dom-if" if="{{enhanced}}">
+              <content></content>
+            </template>
           </div>
       </div>
     </template>
@@ -144,6 +158,34 @@ elements are not supported.
               type: Boolean,
               value: false,
               observer: 'hideOverlayChanged'
+            },
+            /**
+             * Enhanced empowers the developer to fully control the inner html of the popover. For instance, the popover can be used to render a form or contain an embedded video.
+             *
+             * To inject your custom inner html, simply include your custom markup as the first child of the px-popover when declaring the px-popover in your application. Sample provided below.
+             *
+             *
+               <px-popover
+                   for="someElement"
+                   orientation="bottom"
+                   position="absolute"
+                   enhanced="true">
+
+                   //This first child element represents the customized markup that will render in the popover when enhanced is set to true.
+                     <div>
+                       This is a form
+                       <form>
+                         <input class="enhanced-text-input" type="text" value={{enhancedTextValue::input}}>
+                       </form>
+                     </div>
+               </px-popover>
+             *
+             *
+             *
+             */
+            enhanced: {
+              type: Boolean,
+              value: false
             }
         },
         _getTarget: function() {

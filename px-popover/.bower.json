@@ -1,13 +1,13 @@
 {
   "name": "px-popover",
-  "version": "1.5.1",
+  "version": "1.6.9",
   "main": [
     "px-popover.html"
   ],
   "ignore": [
     ".*",
     "npm-debug.log",
-    "Gruntfile.js",
+    "gulpfile.js",
     "sass",
     "bower_components",
     "node_modules",
@@ -20,35 +20,35 @@
   "dependencies": {
     "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.2",
     "polymer": "^1.6.0",
-    "px-theme": "~1.1.2",
+    "px-theme": "^2.0.1",
     "px-overlay": "~0.3.0",
     "px-buttons-design": "^0.4.26"
   },
   "devDependencies": {
     "px-starter-kit-design": "~0.6.0",
-    "px-forms-design": "#~0.3.15",
-    "px-tables-design": "#~0.3.12",
+    "px-forms-design": "~0.3.15",
+    "px-tables-design": "~0.3.12",
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#~1.2.3",
     "px-polymer-font-awesome": "^0.1.8",
     "px-tabs": "~0.5.1",
     "px-api-viewer": "~0.1.0",
-    "px-demo-snippet": "^0.6.3",
+    "px-demo-snippet": "^0.6.9",
     "px-actionable-text-icons-design": "^0.1.0",
     "px-code-design": "^0.2.11",
     "px-headings-design": "^0.2.14",
     "px-list-inline-design": "^0.2.11",
-    "px-dropdown": "^0.12.0",
+    "px-dropdown": "~2.0.0",
     "px-spacing-design": "~0.3.8",
     "px-toggle-design": "^0.2.12"
   },
   "homepage": "https://github.com/PredixDev/px-popover",
-  "_release": "1.5.1",
+  "_release": "1.6.9",
   "_resolution": {
     "type": "version",
-    "tag": "v1.5.1",
-    "commit": "a73d226fe4a8c78768c5375b173b67ef05687dd2"
+    "tag": "v1.6.9",
+    "commit": "297ac8e01826cc04ef56975b18e46a04473b4bd0"
   },
   "_source": "https://github.com/PredixDev/px-popover.git",
-  "_target": "~1.5.0",
+  "_target": "~1.6.0",
   "_originalSource": "px-popover"
 }

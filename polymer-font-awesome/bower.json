@@ -1,9 +1,9 @@
 {
-  "name": "polymer-font-awesome",
-  "version": "0.1.10",
+  "name": "px-polymer-font-awesome",
+  "version": "0.1.11",
   "authors": [
     "Martin Wragg mdwragg@gmail.com",
-    "Runn Vermel runn@vermel.org"
+    "Runn Vermel runn.vermel@ge.com"
   ],
   "description": "Polymer component to allow easy use of Font Awesome icons in your Polymer element.",
   "keywords": [
@@ -22,7 +22,7 @@
     "polymer": "Polymer/polymer#^1.4.0",
     "iron-iconset-svg": "PolymerElements/iron-iconset-svg#^1.0.9",
     "iron-icon": "PolymerElements/iron-icon#^1.0.7",
-    "px-theme": "~1.1.2"
+    "px-theme": "^2.0.1"
   },
   "devDependencies": {
     "px-starter-kit-design": "~0.6.0",

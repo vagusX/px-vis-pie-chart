@@ -1,3 +1,26 @@
+v0.6.43
+==================
+* Update dependency versions
+
+v0.6.42
+==================
+* Update px-theme to 2.0.1 and update test fixtures
+* added xlink namespace to svg
+
+v0.6.41
+==================
+* updated link inside px-vis to correct link (was missing path)
+
+v0.6.40
+==================
+* changed radial scale to use infinity instead of max and min number
+* added if statement for line canvas to check if chartData and axes are present
+* updated px-vis html with all components
+
+v0.6.39
+==================
+* fixed bug in IE when starting an svg line with mutedSeries
+
 v0.6.38
 ==================
 * fixed axis tickFormat check so it looks for function, not object

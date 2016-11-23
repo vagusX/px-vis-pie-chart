@@ -1,12 +1,23 @@
+v0.2.10
+==================
+* Update px-theme to 2.0.1 and update test fixtures
+
+v0.3.0
+==================
+* Added aggregateOtherRegister to allow to display the rest of the data in the register if maxRegisters is used
+* Added preserveDataOrder to allow the chart to keep the slices in the same order as the data, as opposed as ordering them by value
+* Fixed a bug were colors between registers and slices would desynchronise
+* Fixed data update/deletion/addition issues
+* Added animations on data update/deletion/addition
+* Automatically sort registers from the biggest value to the smallest
+
 v0.2.9
 ==================
 * removing px-theme style call
 
-
 v0.2.8
 ==================
 * changing Gruntfile.js to gulpfile.js
-
 
 v0.2.7
 ==================

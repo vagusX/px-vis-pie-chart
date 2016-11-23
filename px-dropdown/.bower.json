@@ -1,6 +1,6 @@
 {
   "name": "px-dropdown",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "main": [
     "px-dropdown.html"
   ],
@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "polymer": "^1.6.0",
-    "px-theme": "#~1.1.2",
+    "px-theme": "^2.0.1",
     "px-tooltip": "#~0.9.0",
     "px-spacing-design": "#~0.3.7",
     "px-polymer-font-awesome": "^0.1.8",
@@ -42,11 +42,11 @@
     "px-meta-lists-design": "^0.3.4"
   },
   "homepage": "https://github.com/predixDev/px-dropdown",
-  "_release": "2.0.4",
+  "_release": "2.0.5",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.4",
-    "commit": "26d3042e9e32d7fdaa8699ad2d36fdf017d91de1"
+    "tag": "v2.0.5",
+    "commit": "602d89652655330832da0ed2d56ae16e4ac73c1d"
   },
   "_source": "https://github.com/predixDev/px-dropdown.git",
   "_target": "~2.0.0",

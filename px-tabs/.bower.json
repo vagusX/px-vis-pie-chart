@@ -1,6 +1,6 @@
 {
   "name": "px-tabs",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "main": [
     "px-tabs.html"
   ],
@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "polymer": "^1.6.0",
-    "px-theme": "~1.1.2",
+    "px-theme": "^2.0.1",
     "iron-pages": "PolymerElements/iron-pages"
   },
   "devDependencies": {
@@ -39,11 +39,11 @@
     "px-toggle-design": "^0.2.12"
   },
   "homepage": "https://github.com/PredixDev/px-tabs",
-  "_release": "0.5.8",
+  "_release": "0.5.9",
   "_resolution": {
     "type": "version",
-    "tag": "v0.5.8",
-    "commit": "47ec555d5a9ec282faf4758bc5e40a21f7d9a105"
+    "tag": "v0.5.9",
+    "commit": "c7ab693853775761fa56aebdaadd23d89203c20c"
   },
   "_source": "https://github.com/PredixDev/px-tabs.git",
   "_target": "~0.5.2",

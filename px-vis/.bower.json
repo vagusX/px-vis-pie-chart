@@ -1,6 +1,6 @@
 {
   "name": "px-vis",
-  "version": "0.6.38",
+  "version": "0.6.43",
   "main": [
     "px-vis.html"
   ],
@@ -20,8 +20,8 @@
     "numbro-element": "~1.0.4",
     "px-colors-design": "~0.2.16",
     "px-tooltip": "~0.9.0",
-    "px-popover": "~1.5.0",
-    "px-theme": "~1.1.2",
+    "px-popover": "~1.6.0",
+    "px-theme": "^2.0.1",
     "px": "~1.4.3",
     "px-datetime-common": "~0.6.3",
     "iron-resizable-behavior": "^1.0.5",
@@ -33,7 +33,7 @@
     "px-meta-buttons-design": "~0.5.5",
     "px-starter-kit-design": "~0.6.0",
     "web-component-tester": "~4.3.5",
-    "px-slider": "~0.6.0",
+    "px-slider": "~0.7.0",
     "px-spacing-design": "~0.3.8",
     "px-buttons-design": "~0.4.26",
     "px-forms-design": "~0.3.17",
@@ -53,11 +53,11 @@
     "px-actionable-text-icons-design": "^0.1.0"
   },
   "homepage": "https://github.com/PredixDev/px-vis",
-  "_release": "0.6.38",
+  "_release": "0.6.43",
   "_resolution": {
     "type": "version",
-    "tag": "v0.6.38",
-    "commit": "f020e2920716bebb100d290fb3f9a581bc4cce76"
+    "tag": "v0.6.43",
+    "commit": "d2ba519edc46d6de3e8fa22e77c8bf4943bdeccd"
   },
   "_source": "https://github.com/PredixDev/px-vis.git",
   "_target": "~0.6.0",

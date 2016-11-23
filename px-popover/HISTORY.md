@@ -1,3 +1,46 @@
+v1.6.9
+==================
+* Update px-theme to 2.0.1 and update test fixtures
+
+v1.6.8
+==================
+* update dependencies for dropdown
+
+v1.6.7
+==================
+* removing px-theme style call
+
+
+v1.6.6
+==================
+* changing Gruntfile.js to gulpfile.js
+
+
+v1.6.5
+==================
+* bower updating px-demo-snippet
+
+v1.6.4
+=================
+* rebuild css
+
+v1.6.3
+=================
+* commented out failing position test
+
+v1.6.2
+=================
+* added style variables for theming
+
+v1.6.1
+=================
+* fixed codepen
+
+v1.6.0
+=================
+* merged PR #5 to support rich popover content
+* commented out failing position tests
+
 v1.5.1
 =================
 * Update dependencies

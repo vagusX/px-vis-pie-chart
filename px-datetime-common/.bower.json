@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-common",
-  "version": "0.6.14",
+  "version": "0.6.15",
   "main": [
     "px-datetime-common.html"
   ],
@@ -17,7 +17,7 @@
     "pxmoment": "moment#~2.13.0",
     "pxmoment-timezone": "moment-timezone#~0.5.3",
     "polymer": "^1.6.1",
-    "px-theme": "~1.1.2",
+    "px-theme": "^2.0.1",
     "iron-a11y-keys-behavior": "PolymerElements/iron-a11y-keys-behavior#~1.1.0",
     "px-dropdown": "~2.0.0",
     "polymer-font-awesome": "px-polymer-font-awesome#^0.1.9"
@@ -32,11 +32,11 @@
     "px-actionable-text-icons-design": "^0.1.0"
   },
   "homepage": "https://github.com/PredixDev/px-datetime-common",
-  "_release": "0.6.14",
+  "_release": "0.6.15",
   "_resolution": {
     "type": "version",
-    "tag": "v0.6.14",
-    "commit": "c167d73b7be42833143b9d6796a366456d10b7ae"
+    "tag": "v0.6.15",
+    "commit": "fe98631e0dd448998ce29533c3231ca5c722c0e1"
   },
   "_source": "https://github.com/PredixDev/px-datetime-common.git",
   "_target": "~0.6.3",

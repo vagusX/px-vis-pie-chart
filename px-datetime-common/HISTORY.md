@@ -1,3 +1,7 @@
+v0.6.15
+==================
+* Update px-theme to 2.0.1 and update test fixtures
+
 v0.6.14
 ==================
 * updated px-datetime-entry-predix.scss dropdown css variables  

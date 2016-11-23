@@ -1,3 +1,7 @@
+v0.1.11
+==================
+* changed px-theme to 2.0.1
+
 v0.1.10
 ==================
 * added new demo page and auto-ghp

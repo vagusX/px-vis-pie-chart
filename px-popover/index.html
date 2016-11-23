@@ -66,11 +66,16 @@
                 <div class="u-mb-">popoverTitle: <input id="popoverTitle{{indexPlusOne(index)}}" class="text-input" type="text" placeholder="{{item.popoverTitle::input}}" value="{{item.popoverTitle::input}}" /></div>
                 <div class="flex">orientation:</div>
                 <div class="flex u-mb-">
-                  <px-dropdown id="orientation{{indexPlusOne(index)}}" style="width:100%;" value="{{item.orientation}}" display-value="Select">
+                  <px-dropdown id="orientation{{indexPlusOne(index)}}" style="width:100%;" value="{{item.orientation}}" display-value="{{item.orientation}}">
                     <px-dropdown-content
                       items={{items}}>
                     </px-dropdown-content>
                   </px-dropdown>
+                </div>
+                <div class="flex u-mb-">
+                  <input id="enhanced{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.enhanced::change}}">
+                  <label for$="enhanced{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
+                  <div class="u-ml-"> Enhanced </div>
                 </div>
               </div>
 
@@ -86,7 +91,16 @@
                         orientation="[[item.orientation]]"
                         popover-title="[[item.popoverTitle]]"
                         popover-body="[[item.popoverBody]]"
-                        position="[[item.position]]">
+                        position="[[item.position]]"
+                        enhanced="[[item.enhanced]]">
+                        <template is="dom-if" if="{{item.enhanced}}">
+                          <div>
+                            This is a form
+                            <form>
+                              <input class="enhanced-text-input" type="text" value={{enhancedTextValue::input}}>
+                            </form>
+                          </div>
+                        </template>
                     </px-popover>
                   </div>
                 </div>
@@ -125,7 +139,7 @@
           <li>
             <a href="mailto:info@predix.io" class="footer__list--lnk">Contact Us</a>
           </li>
-          <li>Copyright &copy; {{year}} General Electric Company. All rights reserved.</li>
+          <li>Copyright &copy; 2016 General Electric Company. All rights reserved.</li>
         </ul>
       </div>
     </div>
@@ -144,45 +158,42 @@ window.addEventListener('WebComponentsReady', function() {
       optionsArray = [
         {
           "for":"btn1",
-          "orientation": "left",
-          "popoverTitle": "this is a left popover title",
-          "popoverBody": "this is a Left popover Body",
-          "position": "relative"
+          "orientation": "right",
+          "popoverTitle": "this is a right popover title",
+          "popoverBody": "this is a right popover body",
+          "position": "relative",
+          "enhanced": false,
+          "siblingElement": '<button class="btn btn--tertiary" id="btn1" type="button" name="button">Click here</button>'
         },
         {
           "for":"btn2",
-          "orientation": "right",
-          "popoverTitle": "this is a Right popover title",
-          "popoverBody": "this is a Right popover Body",
-          "position": "relative"
+          "orientation": "bottom",
+          "popoverTitle": "this is a bottom popover title",
+          "popoverBody": "this is a bottom popover body",
+          "position": "relative",
+          "enhanced": false,
+          "siblingElement": '<button class="btn btn--tertiary" id="btn2" type="button" name="button">Click here</button>'
         },
         {
           "for":"btn3",
-          "orientation": "top",
-          "popoverTitle": "this is a Top popover title",
-          "popoverBody": "this is a Top popover Body",
-          "position": "relative"
-        },
-        {
-          "for":"btn4",
           "orientation": "bottom",
-          "popoverTitle": "this is a Bottom popover title",
-          "popoverBody": "this is a Bottom popover Body",
-          "position": "relative"
+          "popoverTitle": "",
+          "popoverBody": "",
+          "position": "relative",
+          "enhanced": true,
+          "siblingElement": '<button class="btn btn--tertiary" id="btn3" type="button" name="button">Click here</button>',
+          "lightDomContent": '<div>This is a form<form><input class="enhanced-text-input" type="text" value="Input"></form></div>'
         }
       ],
       indexPlusOne = function(num) {
         return num + 1;
-      },
-      year = new Date();
+      };
 
 
   template.selected = "0";
   template.optionsArray = optionsArray;
   template.indexPlusOne = indexPlusOne;
   template.items = items;
-  template.year = year.getFullYear();
-
 });
 </script>
 

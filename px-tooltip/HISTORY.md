@@ -1,3 +1,15 @@
+v0.9.15
+==================
+* Update px-theme to 2.0.1 and update test fixtures
+
+v0.9.14
+==================
+* turned max width into a mixin
+
+v0.9.13
+==================
+* give (hidden) default values to mouseCoords in case the tooltip has been requried to be shown without the mouse positions being known yet
+
 v0.9.12
 ==================
 * update dependencies for dropdown

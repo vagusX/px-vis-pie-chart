@@ -1,6 +1,6 @@
 {
     "name": "px-overlay",
-    "version": "0.3.7",
+    "version": "0.3.8",
     "main": [
         "px-overlay.html"
     ],
@@ -19,7 +19,7 @@
     ],
     "dependencies": {
         "polymer": "^1.6.0",
-        "px-theme": "~1.1.2"
+        "px-theme": "^2.0.1"
     },
     "devDependencies": {
         "px-starter-kit-design": "~0.6.0",
